@@ -6,19 +6,13 @@
     android:background="#ffffff"
     android:orientation="vertical" 
     android:gravity="center_horizontal">
-    <RelativeLayout 
+   	<RelativeLayout 
         android:id="@+id/login_top_layout"
         android:layout_width="fill_parent"
         android:layout_height="40dp"
         android:layout_alignParentTop="true"
         android:background="@drawable/login_top_bg">
-        <Button
-            android:id="@+id/login_reback_btn"
-            android:layout_width="40dp"
-            android:layout_height="23dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:background="@drawable/login_reback_selector"/>
+
         <TextView
             android:layout_width="50dp"
             android:layout_height="23dp"

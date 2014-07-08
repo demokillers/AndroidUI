@@ -1,13 +1,9 @@
-package com.yong.communityhelp;
+package client.ui;
 
 import java.io.File;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 
-import android.net.Uri;
-import android.os.Bundle;
-import android.os.Environment;
-import android.provider.MediaStore;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -15,8 +11,12 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.view.Menu;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.view.View;
+import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 
@@ -32,6 +32,7 @@ public class RegisterActivity extends Activity implements OnClickListener{
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.register_activity);
 		init();
 	}
@@ -41,7 +42,6 @@ public class RegisterActivity extends Activity implements OnClickListener{
 		img_btn = (ImageView) findViewById(R.id.portrait);
 		//为ImageButton和Button添加监听事件
 		img_btn.setOnClickListener(this);
-
 	}
 	
 	//点击事件
