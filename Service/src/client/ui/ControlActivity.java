@@ -1,5 +1,7 @@
 package client.ui;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 import android.app.ActionBar;
@@ -9,15 +11,11 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.NavUtils;
 import android.support.v4.view.ViewPager;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Menu;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+import fragment.FriendFragment;
+import fragment.HelpFragment;
+import fragment.MessageFragment;
 
 public class ControlActivity extends FragmentActivity implements
 		ActionBar.TabListener {
@@ -31,6 +29,7 @@ public class ControlActivity extends FragmentActivity implements
 	 * {@link android.support.v4.app.FragmentStatePagerAdapter}.
 	 */
 	SectionsPagerAdapter mSectionsPagerAdapter;
+	List<Fragment> fragments;
 
 	/**
 	 * The {@link ViewPager} that will host the section contents.
@@ -75,6 +74,11 @@ public class ControlActivity extends FragmentActivity implements
 					.setText(mSectionsPagerAdapter.getPageTitle(i))
 					.setTabListener(this));
 		}
+		
+		fragments=new ArrayList<Fragment>();
+		fragments.add(new HelpFragment());
+		fragments.add(new FriendFragment());
+		fragments.add(new MessageFragment());
 	}
 
 	@Override
@@ -114,14 +118,7 @@ public class ControlActivity extends FragmentActivity implements
 
 		@Override
 		public Fragment getItem(int position) {
-			// getItem is called to instantiate the fragment for the given page.
-			// Return a DummySectionFragment (defined as a static inner class
-			// below) with the page number as its lone argument.
-			Fragment fragment = new DummySectionFragment();
-			Bundle args = new Bundle();
-			args.putInt(DummySectionFragment.ARG_SECTION_NUMBER, position);
-			fragment.setArguments(args);
-			return fragment;
+			return fragments.get(position);
 		}
 
 		@Override
@@ -142,55 +139,6 @@ public class ControlActivity extends FragmentActivity implements
 				return getString(R.string.title_section3).toUpperCase(l);
 			}
 			return null;
-		}
-	}
-
-	/**
-	 * A dummy fragment representing a section of the app, but that simply
-	 * displays dummy text.
-	 */
-	public static class DummySectionFragment extends Fragment {
-		/**
-		 * The fragment argument representing the section number for this
-		 * fragment.
-		 */
-		public static final String ARG_SECTION_NUMBER = "section_number";
-		private View rootView;
-
-		public DummySectionFragment() {
-		}
-
-		@Override
-		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {
-			if(getArguments().getInt(ARG_SECTION_NUMBER)==0){
-				rootView = inflater.inflate(R.layout.fragment_1,
-						container, false);
-				//TextView dummyTextView = (TextView) rootView
-				//		.findViewById(R.id.section_label);
-				//dummyTextView.setText(Integer.toString(getArguments().getInt(
-				//		ARG_SECTION_NUMBER)));
-				
-			}
-			else if(getArguments().getInt(ARG_SECTION_NUMBER)==1){
-				rootView = inflater.inflate(R.layout.fragment_2,
-						container, false);
-				//TextView dummyTextView = (TextView) rootView
-				//		.findViewById(R.id.section_label);
-				//dummyTextView.setText(Integer.toString(getArguments().getInt(
-				//		ARG_SECTION_NUMBER)));
-				
-			}
-			else{
-				rootView = inflater.inflate(R.layout.fragment_3,
-						container, false);
-				//TextView dummyTextView = (TextView) rootView
-				//		.findViewById(R.id.section_label);
-				//dummyTextView.setText(Integer.toString(getArguments().getInt(
-				//		ARG_SECTION_NUMBER)));
-				
-			}
-			return rootView;
 		}
 	}
 

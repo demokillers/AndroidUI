@@ -41,25 +41,40 @@ public final class R {
         public static final int main_regist_normal=0x7f020011;
         public static final int main_regist_pressed=0x7f020012;
         public static final int main_regist_selector=0x7f020013;
-        public static final int xianjian01=0x7f020014;
-        public static final int xianjian02=0x7f020015;
-        public static final int xianjian03=0x7f020016;
+        public static final int portrait=0x7f020014;
+        public static final int table_shape=0x7f020015;
+        public static final int xianjian01=0x7f020016;
+        public static final int xianjian02=0x7f020017;
+        public static final int xianjian03=0x7f020018;
     }
     public static final class id {
-        public static final int action_settings=0x7f08000d;
-        public static final int forget_passwd=0x7f080008;
+        public static final int action_settings=0x7f08001a;
+        public static final int address=0x7f080010;
+        public static final int age=0x7f080015;
+        public static final int cancel=0x7f080019;
+        public static final int editText1=0x7f08000c;
+        public static final int forget_passwd=0x7f080007;
+        public static final int gender=0x7f080012;
+        public static final int idNumber=0x7f08000d;
         public static final int imageview=0x7f080001;
-        public static final int linearLayout1=0x7f08000a;
+        public static final int linearLayout1=0x7f080009;
         public static final int login_layout=0x7f080003;
-        public static final int login_login_btn=0x7f080009;
-        public static final int login_passwd_edit=0x7f080007;
-        public static final int login_reback_btn=0x7f080005;
+        public static final int login_login_btn=0x7f080008;
+        public static final int login_passwd_edit=0x7f080006;
         public static final int login_top_layout=0x7f080004;
-        public static final int login_user_edit=0x7f080006;
-        public static final int main_login_btn=0x7f08000b;
-        public static final int main_regist_btn=0x7f08000c;
+        public static final int login_user_edit=0x7f080005;
+        public static final int main_login_btn=0x7f08000a;
+        public static final int main_regist_btn=0x7f08000b;
         public static final int pager=0x7f080000;
+        public static final int password=0x7f080016;
+        public static final int password2=0x7f080017;
+        public static final int portrait=0x7f08000e;
+        public static final int radioMan=0x7f080013;
+        public static final int radioWoman=0x7f080014;
+        public static final int register=0x7f080018;
         public static final int section_label=0x7f080002;
+        public static final int sickness=0x7f080011;
+        public static final int teleNumber=0x7f08000f;
     }
     public static final class layout {
         public static final int control=0x7f030000;
@@ -69,6 +84,7 @@ public final class R {
         public static final int fragment_control_dummy=0x7f030004;
         public static final int login=0x7f030005;
         public static final int main=0x7f030006;
+        public static final int register_activity=0x7f030007;
     }
     public static final class menu {
         public static final int control=0x7f070000;
