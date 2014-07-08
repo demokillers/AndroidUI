@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 
 public class LoginActivity extends Activity implements OnClickListener{
-	Button rebackBtn,loginBtn,forgetPasswdBtn;
+	Button loginBtn,forgetPasswdBtn;
 	EditText userEdit,passwdEdit;
 	RelativeLayout loginLayout;
     @Override
@@ -21,8 +21,6 @@ public class LoginActivity extends Activity implements OnClickListener{
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.login);
-        rebackBtn = (Button)findViewById(R.id.login_reback_btn);
-        rebackBtn.setOnClickListener(this);//注册监听器  一定不能忘
         loginBtn = (Button)findViewById(R.id.login_login_btn);
         loginBtn.setOnClickListener(this);//注册监听器  一定不能忘
         passwdEdit = (EditText)findViewById(R.id.login_passwd_edit);
@@ -35,9 +33,6 @@ public class LoginActivity extends Activity implements OnClickListener{
 	public void onClick(View v) {
 		int viewId = v.getId();
 		switch (viewId) {
-		case R.id.login_reback_btn://返回按钮
-			LoginActivity.this.finish();//关闭这个Activity  返回上一个Activity
-			break;
 		case R.id.login_login_btn://点击登录按钮   进行判断  用户名和密码是否为空
 			String userEditStr = userEdit.getText().toString().trim();
 			String passwdEditStr = passwdEdit.getText().toString().trim();
