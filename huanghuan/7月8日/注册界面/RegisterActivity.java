@@ -18,29 +18,34 @@ import android.graphics.drawable.Drawable;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.ImageView;
 
 public class RegisterActivity extends Activity implements OnClickListener{
-	private ImageView img_btn;
-
+	
+	private ImageView img_view; //头像视图
 	private static final int PHOTO_REQUEST_TAKEPHOTO = 1;// 拍照
 	private static final int PHOTO_REQUEST_GALLERY = 2;// 从相册中选择
 	private static final int PHOTO_REQUEST_CUT = 3;// 结果
 	// 创建一个以当前时间为名称的文件
-	File tempFile = new File(Environment.getExternalStorageDirectory(),getPhotoFileName());
+	File tempFile = new File(Environment.getExternalStorageDirectory(), getPhotoFileName());
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
+		
 		setContentView(R.layout.register_activity);
 		init();
+		
+		
 	}
 	
 	//初始化控件
 	private void init() {
-		img_btn = (ImageView) findViewById(R.id.portrait);
-		//为ImageButton和Button添加监听事件
-		img_btn.setOnClickListener(this);
+		img_view = (ImageView) findViewById(R.id.portrait);
+		//为ImageView添加监听事件
+		img_view.setOnClickListener(this);
 
 	}
 	
@@ -49,16 +54,22 @@ public class RegisterActivity extends Activity implements OnClickListener{
 	public void onClick(View v) {
 		// TODO Auto-generated method stub
 		switch (v.getId()) {
-		case 	R.id.portrait:
-				showDialog();
-				break;
+	
+		case R.id.portrait:			
+			showDialog();
+			break;
+		
 		}
+
 	}
 
 	//提示对话框方法
 	private void showDialog() {
-		new AlertDialog.Builder(this).setTitle("头像设置").setPositiveButton("拍照", new DialogInterface.OnClickListener() {
-			
+		
+		new AlertDialog.Builder(this)
+		.setTitle("头像设置")
+		.setPositiveButton("拍照", new DialogInterface.OnClickListener() {
+
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				// TODO Auto-generated method stub
@@ -66,20 +77,22 @@ public class RegisterActivity extends Activity implements OnClickListener{
 				// 调用系统的拍照功能
 				Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 				// 指定调用相机拍照后照片的储存路径
-				intent.putExtra(MediaStore.EXTRA_OUTPUT,Uri.fromFile(tempFile));
+				intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(tempFile));
 				startActivityForResult(intent, PHOTO_REQUEST_TAKEPHOTO);
 			}
-	}).setNegativeButton("相册", new DialogInterface.OnClickListener() {
-		@Override
-		public void onClick(DialogInterface dialog, int which) {
-			// TODO Auto-generated method stub
-			dialog.dismiss();
-			Intent intent = new Intent(Intent.ACTION_PICK, null);
-			intent.setDataAndType(
-					MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
-					"image/*");
-			startActivityForResult(intent, PHOTO_REQUEST_GALLERY);
-		}}).show();
+		})
+		
+		.setNegativeButton("相册", new DialogInterface.OnClickListener() {
+
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				dialog.dismiss();
+				Intent intent = new Intent(Intent.ACTION_PICK, null);
+				intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
+				startActivityForResult(intent, PHOTO_REQUEST_GALLERY);
+			}
+		}).show();
 	}
 
 	@Override
@@ -87,22 +100,23 @@ public class RegisterActivity extends Activity implements OnClickListener{
 	// TODO Auto-generated method stub
 
 		switch (requestCode) {
-			case 	PHOTO_REQUEST_TAKEPHOTO://当选择拍照时调用
-					startPhotoZoom(Uri.fromFile(tempFile), 150);
-					break;
-
-			case 	PHOTO_REQUEST_GALLERY://当选择从本地获取图片时
-					//做非空判断，当我们觉得不满意想重新剪裁的时候便不会报异常，下同
-					if (data != null)
-						startPhotoZoom(data.getData(), 150);
-						break;
-
-			case 	PHOTO_REQUEST_CUT://返回的结果
-					if (data != null) 
-						setPicToView(data);
-					break;
+		case PHOTO_REQUEST_TAKEPHOTO://当选择拍照时调用
+			startPhotoZoom(Uri.fromFile(tempFile), 150);
+			break;
+	
+		case PHOTO_REQUEST_GALLERY://当选择从本地获取图片时
+			//做非空判断，当我们觉得不满意想重新剪裁的时候便不会报异常，下同
+			if (data != null)
+			startPhotoZoom(data.getData(), 150);
+			break;
+	
+		case PHOTO_REQUEST_CUT://返回的结果
+			if (data != null) 
+			setPicToView(data);
+			break;
 		}
 		super.onActivityResult(requestCode, resultCode, data);
+
 	}
 
 	private void startPhotoZoom(Uri uri, int size) {
@@ -110,26 +124,26 @@ public class RegisterActivity extends Activity implements OnClickListener{
 		intent.setDataAndType(uri, "image/*");
 		// crop为true是设置在开启的intent中设置显示的view可以剪裁
 		intent.putExtra("crop", "true");
-
+	
 		// aspectX aspectY 是宽高的比例
 		intent.putExtra("aspectX", 1);
 		intent.putExtra("aspectY", 1);
-
+	
 		// outputX,outputY 是剪裁图片的宽高
 		intent.putExtra("outputX", size);
 		intent.putExtra("outputY", size);
 		intent.putExtra("return-data", true);
-
+	
 		startActivityForResult(intent, PHOTO_REQUEST_CUT);
 	}
 
-		//将进行剪裁后的图片显示到UI界面上
+	//将进行剪裁后的图片显示到UI界面上
 	private void setPicToView(Intent picdata) {
 		Bundle bundle = picdata.getExtras();
 		if (bundle != null) {
 			Bitmap photo = bundle.getParcelable("data");
-		Drawable drawable = new BitmapDrawable(photo);
-		img_btn.setBackgroundDrawable(drawable);
+			Drawable drawable = new BitmapDrawable(photo);
+			img_view.setBackgroundDrawable(drawable);
 		}
 	}
 
