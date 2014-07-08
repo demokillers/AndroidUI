@@ -1,0 +1,2 @@
+Theme采用的是Theme.NoTitleBar风格
+Manifest文件中有写
