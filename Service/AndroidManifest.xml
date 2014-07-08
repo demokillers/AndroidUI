@@ -30,6 +30,9 @@
             android:label="@string/title_activity_control" 
             android:theme="@style/CustomTheme">
         </activity>
+        <activity
+            android:name="client.ui.RegisterActivity" >
+        </activity>
     </application>
 
 </manifest>
