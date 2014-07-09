@@ -1,34 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+      android:id="@+id/scrollView1"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_weight="1" >
+
+<LinearLayout
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical" >
+
     
-    <RelativeLayout
-        android:id="@+id/login_top_layout"
-        android:layout_width="fill_parent"
-        android:layout_height="40dp"
-        android:background="@drawable/login_top_bg"
-        android:gravity="top" >
+    <TextView 
+        android:layout_width="match_parent"
+   		android:layout_height="wrap_content"
+   		android:layout_weight="1"
+   		android:gravity="center_horizontal"
+   		android:textSize="30sp"
+   		android:background="#FF000000"
+   		android:textColor="#FFFFFFFF"
+    	android:text="注册"/>
 
-        <TextView
-            android:layout_width="50dp"
-            android:layout_height="23dp"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_centerInParent="true"
-            android:textSize="17sp"
-            android:textStyle="bold"
-            android:textColor="#ffffff"
-            android:text="@string/main_title"
-           />
-        
-    </RelativeLayout>
-
-    		
+	
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:layout_marginTop="4dp"
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
@@ -39,27 +37,36 @@
             android:layout_width="match_parent"
         	android:layout_height="wrap_content" 
         	android:layout_weight="1"
+        	android:focusable="true"
         	android:orientation="vertical"
         	>
-						
+        			            						
 	        	<EditText
-		            android:id="@+id/editText1"
-		            android:layout_width="wrap_content"
+		            android:id="@+id/user"
+		            android:layout_width="match_parent"
 		            android:layout_height="wrap_content"
-
-					android:hint="姓名"
+					android:layout_weight="1"
+					android:hint="昵称"
 		            android:ems="10"
 		            android:inputType="textPersonName" >
 		
 		            <requestFocus />
 		        </EditText>
 
+	        	<EditText
+	        	    android:id="@+id/name"
+	        	    android:layout_width="match_parent"
+	        	    android:layout_height="wrap_content"
+	        	    android:layout_weight="1"
+	        	    android:ems="10"
+	        	    android:hint="姓名"
+	        	    android:inputType="textPersonName" />
 	    
 	        	<EditText
 				    android:id="@+id/idNumber"
-				    android:layout_width="wrap_content"
+				    android:layout_width="match_parent"
 				    android:layout_height="wrap_content"
-
+					android:layout_weight="1"
 					android:hint="电话"
 					android:ems="10"
 				    android:inputType="phone" >
@@ -79,8 +86,8 @@
 			<ImageView
 			    android:id="@+id/portrait"
 			    android:layout_width="match_parent"
-			    android:layout_height="match_parent"
-			   
+			    android:layout_height="0dp"
+			    android:layout_weight="1"
 			    android:layout_gravity="fill"
 			    android:background="@drawable/portrait"
 			     />
@@ -95,6 +102,7 @@
 	<LinearLayout 
 	    android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="1"
         android:layout_marginTop="4dp"
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
@@ -103,10 +111,21 @@
 		    >
 		
 		<EditText
-		    android:id="@+id/teleNumber"
-		    android:layout_width="wrap_content"
+		    android:id="@+id/relative"
+		    android:layout_width="match_parent"
 		    android:layout_height="wrap_content"
-
+			android:layout_weight="1"
+			android:hint="亲友电话"
+			android:ems="15"
+		    android:inputType="phone" >
+       	            
+       	</EditText>
+	    		
+		<EditText
+		    android:id="@+id/teleNumber"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+			android:layout_weight="1"
 			android:hint="身份证号"
 			android:ems="15"
 		    android:inputType="number" >
@@ -116,9 +135,9 @@
 	    
 		<EditText
 		    android:id="@+id/address"
-		    android:layout_width="wrap_content"
+		    android:layout_width="match_parent"
 		    android:layout_height="wrap_content"
-		
+		    android:layout_weight="1"
 			android:hint="家庭住址"
 			android:ems="15"
 		    android:inputType="textPersonName" >
@@ -128,9 +147,9 @@
 		
 		<EditText
 		    android:id="@+id/sickness"
-		    android:layout_width="wrap_content"
+		    android:layout_width="match_parent"
 		    android:layout_height="wrap_content"
-		
+		    android:layout_weight="1"
 			android:hint="病史记录"
 			android:ems="15"
 		    android:inputType="textPersonName" >
@@ -142,6 +161,7 @@
 		<LinearLayout 
 		    android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:layout_marginTop="4dp"
 	        android:layout_marginLeft="4dp"
 	        android:layout_marginRight="4dp"
@@ -154,7 +174,7 @@
 	            android:layout_weight="1"
 	            android:layout_height="match_parent"
 	            android:layout_gravity="center_horizontal">
-			"
+
 				<RadioButton
 				    
 				    android:id="@+id/radioMan"
@@ -177,7 +197,7 @@
 		    <EditText
 		    android:id="@+id/age"
 		    android:layout_width="match_parent"
-		    android:layout_height="match_parent"
+		    android:layout_height="wrap_content"
 			android:layout_weight="2"
 			android:hint="年龄"
 			android:ems="3"
@@ -190,7 +210,7 @@
 		<LinearLayout 
 		    android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
-	   
+	   		android:layout_weight="1"
 	        android:layout_marginLeft="4dp"
 	        android:layout_marginRight="4dp"
 	        android:background="@drawable/table_shape" 
@@ -200,6 +220,7 @@
 			    android:id="@+id/password"
 			    android:layout_width="match_parent"
 			    android:layout_height="wrap_content"
+			    android:layout_weight="1"
 			    android:ems="15"
 				android:hint="设置密码"
 			    android:inputType="textPassword" />
@@ -208,6 +229,7 @@
 			    android:id="@+id/password2"
 			    android:layout_width="match_parent"
 			    android:layout_height="wrap_content"
+			    android:layout_weight="1"
 			    android:ems="15"
 			    android:hint="确认密码"
 			    android:inputType="textPassword" />
@@ -219,39 +241,28 @@
 		<LinearLayout		    
 		    android:layout_width="match_parent"
 		    android:layout_height="wrap_content"
+		    android:layout_weight="1"
 		    android:layout_marginTop="4dp"
        		android:layout_marginLeft="4dp"
             android:layout_marginRight="4dp"
 		    android:layout_gravity="center_horizontal"
 		    >
 			<Button
-            	android:id="@+id/register"
-            	android:layout_width="wrap_content"
-            	android:layout_height="45dp"
-            	android:layout_marginTop="20dp"
-            	android:background="@drawable/main_regist_selector"
-            	android:gravity="center"
-            	android:paddingLeft="65dp"
-            	android:paddingRight="65dp"
-            	android:text="注册"
-            	android:textColor="#000000"
-            	android:textSize="15sp" 
-            	android:layout_weight="1"/>
-
+			    android:id="@+id/register"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_weight="1"
+			    android:text="注册" />
 	
 			<Button
-            	android:id="@+id/cancel"
-            	android:layout_width="wrap_content"
-            	android:layout_height="45dp"
-            	android:layout_marginTop="20dp"
-            	android:background="@drawable/main_regist_selector"
-            	android:gravity="center"
-            	android:paddingLeft="65dp"
-            	android:paddingRight="65dp"
-            	android:text="取消"
-            	android:textColor="#000000"
-            	android:textSize="15sp" 
-            	android:layout_weight="1"/>
+			    android:id="@+id/cancel"
+			    android:layout_width="wrap_content"
+			    android:layout_height="wrap_content"
+			    android:layout_weight="1"
+			    android:text="取消" />
 		</LinearLayout>
 				
 </LinearLayout>
+
+
+</ScrollView>
