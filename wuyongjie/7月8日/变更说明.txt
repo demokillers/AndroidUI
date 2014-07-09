@@ -1,0 +1,18 @@
+注册界面：
+register_activity.xml: 添加 昵称和亲友电话，调整布局使其能够上下滚动，在更多不同屏幕的适应性。
+
+portrait.png 图片进行替换
+
+RegisterActivity.java: 修改缩进
+
+
+好友界面：
+group_item_layout.xml: 分组条目的模版 包括组名和人数
+
+child_item_layout.xml: 分组条目下的好友信息（子项） 包括头像，昵称，说明
+
+ExpandAdapter.java: 重写可伸缩列表适配器
+
+Item.java: 好友信息（子项）类 包括头像id，昵称，说明
+
+FriendActivity.java: 好友界面
