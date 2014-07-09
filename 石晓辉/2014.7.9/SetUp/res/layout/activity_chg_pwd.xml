@@ -41,7 +41,7 @@
 		<EditText
 		    android:id="@+id/oldPwd"
 		    android:layout_width="match_parent"
-		    android:layout_height="40dp"
+		    android:layout_height="50dp"
 		    android:ems="10"
 		    android:hint="输入旧密码"
 		    android:inputType="textPassword" />
@@ -49,7 +49,7 @@
 		<EditText
 		    android:id="@+id/newPwd"
 		    android:layout_width="match_parent"
-		    android:layout_height="40dp"
+		    android:layout_height="50dp"
 		    android:ems="10"
 		    android:hint="输入新密码"
 		    android:inputType="textPassword" />
@@ -57,7 +57,7 @@
 		<EditText
 		    android:id="@+id/confirmPwd"
 		    android:layout_width="match_parent"
-		    android:layout_height="40dp"
+		    android:layout_height="50dp"
 		    android:ems="10"
 		    android:hint="确认新密码"
 		    android:inputType="textPassword" >
