@@ -6,7 +6,7 @@
 
     <uses-sdk
         android:minSdkVersion="11"
-        android:targetSdkVersion="14" />
+        android:targetSdkVersion="15" />
 
     <application
         android:allowBackup="true"
@@ -32,6 +32,12 @@
         </activity>
         <activity
             android:name="client.ui.RegisterActivity" >
+        </activity>
+        <activity
+            android:name="client.ui.SetupActivity" >
+        </activity>
+        <activity
+            android:name="client.ui.PersonalInfoActivity" >
         </activity>
     </application>
 
