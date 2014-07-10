@@ -93,7 +93,7 @@
             android:layout_height="1sp"
             android:layout_below="@id/conten_name"
             android:layout_margin="20sp"
-            android:background="#00CF00"
+            android:background="#D0D0D0"
             android:orientation="vertical" >
         </LinearLayout>   
        
@@ -129,7 +129,7 @@
             android:layout_height="1sp"
             android:layout_below="@id/label_sex"
             android:layout_margin="20sp"
-            android:background="#00CF00"
+            android:background="#D0D0D0"
             android:orientation="vertical" >
         </LinearLayout>
         
@@ -167,7 +167,7 @@
             android:layout_height="1sp"
             android:layout_below="@id/label_age"
             android:layout_margin="20sp"
-            android:background="#00CF00"
+            android:background="#D0D0D0"
             android:orientation="vertical" >
         </LinearLayout>
         
@@ -203,7 +203,7 @@
             android:layout_height="1sp"
             android:layout_below="@id/label_phone"
             android:layout_margin="20sp"
-            android:background="#00CF00"
+            android:background="#D0D0D0"
             android:orientation="vertical" >
         </LinearLayout>
         
@@ -243,7 +243,7 @@
             android:layout_height="1sp"
             android:layout_below="@id/content_address"
             android:layout_margin="20sp"
-            android:background="#00CF00"
+            android:background="#D0D0D0"
             android:orientation="vertical" >
         </LinearLayout>
         

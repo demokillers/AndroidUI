@@ -1,0 +1,64 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="0dp"
+    android:background="#ffffff"
+    tools:context=".MainActivity" >
+    
+        <RelativeLayout
+        android:id="@+id/login_top_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/login_top_bg"
+        android:gravity="top" >
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="23dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="关于易助"
+            android:textColor="#ffffff"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+        
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="155dp"
+        android:layout_height="197dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/xiaoniu" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="260dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/imageView1"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="     易助是一款为社区居民尤其是老年人提供救助服务的手机应用。本应用通过构建一个救助信息互动平台，用户可以根据自身的情况发布求助信息来寻求帮助，而志愿者或救助团体可以从平台获取求助信息，从而为求助者提供帮助"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="#000000" />
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="120dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="28dp"
+        android:layout_height="45dp"
+       	android:background="@drawable/main_regist_selector"
+        android:text="返回" />
+
+</RelativeLayout>
+

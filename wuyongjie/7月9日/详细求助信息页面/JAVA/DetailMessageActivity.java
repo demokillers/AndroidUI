@@ -21,7 +21,7 @@ public class DetailMessageActivity extends Activity {
 	private String[] name = {"µ∞∏‚", "¿ÒŒÔ",    
             "” ∆±", "∞Æ–ƒ", " Û±Í", "“Ù¿÷CD"}; 
 	
-	 private String[] time = {
+	private String[] time = {
 			 "2011.02.12",
 			 "2041.11.21",
 			 "2012.03.24",

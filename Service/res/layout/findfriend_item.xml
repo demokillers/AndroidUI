@@ -1,0 +1,55 @@
+<!-- 这是显示列表展开后的布局文件，每个条目有一张图片，名字和描述 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="color:#ff0000;"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
+    android:minHeight="50dp"
+    android:orientation="horizontal" >
+
+    <ImageView
+        android:id="@+id/add_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/img00"
+        android:onClick="show_click"
+        android:clickable="true" />
+
+    <LinearLayout
+        android:layout_width="100dp"
+        android:layout_height="match_parent"
+        android:descendantFocusability="blocksDescendants"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/item_name"
+            android:layout_width="match_parent"
+            android:layout_height="0.0dip"
+            android:layout_weight="1.00"
+            android:gravity="center_vertical"
+            android:text="11"
+            android:textColor="#6495ED"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/item_detail"
+            android:layout_width="match_parent"
+            android:layout_height="0.0dip"
+            android:layout_weight="1.00"
+            android:ellipsize="end"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:text="22"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/addfriend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:focusable="false"
+        android:src="@drawable/add" />
+
+</LinearLayout>
