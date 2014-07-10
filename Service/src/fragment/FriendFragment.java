@@ -7,22 +7,27 @@ import adapter.FriendAdapter;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
+import base.friend;
 import base.user;
+import client.ui.FriendInfoActivity;
 import client.ui.R;
 
 public class FriendFragment extends Fragment implements OnChildClickListener{
 	
 	private ExpandableListView mListView = null; 
     private FriendAdapter mAdapter = null; 
-    private List<List<user>> mData = new ArrayList<List<user>>(); //表示用户信息的列表
+    private List<List<friend>> mData = new ArrayList<List<friend>>(); //表示用户信息的列表
     
     //表示定义的四个分组
     private String[] mGroupArrays = new String[] {  
@@ -69,10 +74,30 @@ public class FriendFragment extends Fragment implements OnChildClickListener{
         //return inflater.inflate(R.layout.fragment_3, container, false);
 		mListView = new ExpandableListView(getActivity()); 
         mListView.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT)); 
-        mAdapter = new FriendAdapter(getActivity(), mData, mGroupArrays); 
+        mAdapter = new FriendAdapter(getActivity(), mData, mGroupArrays);
         mListView.setAdapter(mAdapter); 
         mListView.setDescendantFocusability(ExpandableListView.FOCUS_AFTER_DESCENDANTS); 
-        mListView.setOnChildClickListener(this); 
+        //mListView.setOnChildClickListener(this);
+        mListView.setOnItemLongClickListener(new OnItemLongClickListener(){
+			@Override
+			public boolean onItemLongClick(AdapterView<?> parent, View view,
+					int which, long id) {
+				// TODO Auto-generated method stub
+				final String[] friend_manage = new String[]{"查看亲友","删除亲友"};
+				new AlertDialog.Builder(getActivity())
+						.setItems(friend_manage, new DialogInterface.OnClickListener() {		
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
+								// TODO Auto-generated method stub
+								if(which==0)
+									startActivity(new Intent(getActivity(),FriendInfoActivity.class));
+								else if(which==1)
+									;
+							}
+						}).show();
+				return true;
+			}
+        });
 		return mListView;
     }
 	
@@ -86,7 +111,7 @@ public class FriendFragment extends Fragment implements OnChildClickListener{
 	public boolean onChildClick(ExpandableListView parent, View v, 
             int groupPosition, int childPosition, long id) {
 		// TODO Auto-generated method stub
-		user item = mAdapter.getChild(groupPosition, childPosition); 
+		friend item = mAdapter.getChild(groupPosition, childPosition); 
         new AlertDialog.Builder(getActivity()) 
                 .setTitle(item.getName()) 
                 .setMessage(item.getDetail()) 
@@ -107,10 +132,10 @@ public class FriendFragment extends Fragment implements OnChildClickListener{
 	private void initData() {     
         for(int i = 0; i < mGroupArrays.length; i++)
         {
-        	List<user> list = new ArrayList<user>(); 
+        	List<friend> list = new ArrayList<friend>(); 
         	for(int j = 0; j < 2; j++)
         	{
-        		user item = new user(mImageIds[i][j], mGroupArraysChild[i][j], mDetail[i][j]);
+        		friend item = new friend(mImageIds[i][j], mGroupArraysChild[i][j], mDetail[i][j]);
         		list.add(item);
         	}
         	mData.add(list);
