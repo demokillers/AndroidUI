@@ -39,6 +39,9 @@
         <activity
             android:name="client.ui.PersonalInfoActivity" >
         </activity>
+        <activity
+            android:name="client.ui.FriendInfoActivity" >
+        </activity>
     </application>
 
 </manifest>

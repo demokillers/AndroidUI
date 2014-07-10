@@ -7,15 +7,19 @@ import adapter.FriendAdapter;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
 import base.user;
+import client.ui.FriendInfoActivity;
 import client.ui.R;
 
 public class FriendFragment extends Fragment implements OnChildClickListener{
@@ -72,7 +76,27 @@ public class FriendFragment extends Fragment implements OnChildClickListener{
         mAdapter = new FriendAdapter(getActivity(), mData, mGroupArrays); 
         mListView.setAdapter(mAdapter); 
         mListView.setDescendantFocusability(ExpandableListView.FOCUS_AFTER_DESCENDANTS); 
-        mListView.setOnChildClickListener(this); 
+        //mListView.setOnChildClickListener(this);
+        mListView.setOnItemLongClickListener(new OnItemLongClickListener(){
+			@Override
+			public boolean onItemLongClick(AdapterView<?> parent, View view,
+					int which, long id) {
+				// TODO Auto-generated method stub
+				final String[] friend_manage = new String[]{"²é¿´Ç×ÓÑ","É¾³ýÇ×ÓÑ"};
+				new AlertDialog.Builder(getActivity())
+						.setItems(friend_manage, new DialogInterface.OnClickListener() {		
+							@Override
+							public void onClick(DialogInterface dialog, int which) {
+								// TODO Auto-generated method stub
+								if(which==0)
+									startActivity(new Intent(getActivity(),FriendInfoActivity.class));
+								else if(which==1)
+									;
+							}
+						}).show();
+				return true;
+			}
+        });
 		return mListView;
     }
 	

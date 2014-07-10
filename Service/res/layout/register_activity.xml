@@ -252,6 +252,7 @@
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
 			    android:layout_weight="1"
+			    android:background="@drawable/main_regist_selector"
 			    android:text="注册" />
 	
 			<Button
@@ -259,6 +260,7 @@
 			    android:layout_width="wrap_content"
 			    android:layout_height="wrap_content"
 			    android:layout_weight="1"
+			    android:background="@drawable/main_regist_selector"
 			    android:text="取消" />
 		</LinearLayout>
 				
