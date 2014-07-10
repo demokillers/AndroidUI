@@ -6,13 +6,31 @@
 
     <uses-sdk
         android:minSdkVersion="11"
-        android:targetSdkVersion="14" />
-
+        android:targetSdkVersion="15" />
+	
+    <!--  推送模块权限配置开始 --> 
+  	<uses-permission android:name="android.permission.INTERNET" /> 
+  	<uses-permission android:name="android.permission.READ_PHONE_STATE" /> 
+  	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> 
+  	<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" /> 
+  	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> 
+  	<uses-permission android:name="android.permission.WAKE_LOCK" /> 
+  	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" /> 
+  	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> 
+  	<uses-permission android:name="android.permission.VIBRATE" /> 
+  	<uses-permission android:name="getui.permission.GetuiService" /> 
+  	<uses-permission android:name="android.permission.GET_TASKS" /> 
+- 	<!--  自定义权限 --> 
+  	<permission android:name="getui.permission.GetuiService" android:protectionLevel="normal" /> 
+- 	<!--  推送模块权限配置结束 --> 
+    
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+        
+        
         <activity
             android:name="client.ui.MainActivity"
             android:label="@string/app_name" >
@@ -33,6 +51,123 @@
         <activity
             android:name="client.ui.RegisterActivity" >
         </activity>
+        <activity
+            android:name="client.ui.SetupActivity" >
+        </activity>
+        <activity
+            android:name="client.ui.PersonalInfoActivity" >
+        </activity>
+        <activity
+            android:name="client.ui.Feekback" >
+        </activity>
+        <activity
+            android:name="client.ui.aboutYiZhu" >
+        </activity>
+        <activity
+            android:name="client.ui.SearchfriendActivity" >
+        </activity>
+        <activity
+            android:name="client.ui.Findfriendresult" >
+        </activity>
+        <activity
+            android:name="client.ui.DetailMessageActivity" >
+        </activity>
+        <activity
+            android:name="client.ui.FriendInfoActivity" >
+        </activity>
+        <activity
+            android:name="client.ui.Nearpeople" >
+        </activity>
+        <!-- 推送模块配置开始 -->
+        <!-- 配置第三方参数属性 -->
+        <meta-data
+            android:name="PUSH_APPID"
+            android:value="0yZq9kruSq8zvSpYB2UiA1" />
+        <meta-data
+            android:name="PUSH_APPKEY"
+            android:value="r3Gm2zkRsb8QLMq2U92Bi8" />
+        <meta-data
+            android:name="PUSH_APPSECRET"
+            android:value="htq3FUzjxq7XldtCYnUEXA" />
+        <meta-data
+            android:name="PUSH_GROUPID"
+            android:value="" />
+
+        <!-- 配置第三方Receiver -->
+        <receiver
+            android:name="communicate.PushReceiver"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.igexin.sdk.action.0yZq9kruSq8zvSpYB2UiA1" />
+            </intent-filter>
+        </receiver>
+        
+        <!-- 配置SDK核心服务 -->
+        <service
+            android:name="com.igexin.sdk.PushService"
+            android:process=":pushservice"
+            android:exported="true"
+            android:label="NotificationCenter" >
+        </service>
+
+        <receiver android:name="com.igexin.sdk.PushReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+                <action android:name="com.igexin.sdk.action.refreshls" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name="com.igexin.sdk.PushReceiver"
+            android:exported="false" >
+            <intent-filter>
+                <action android:name="com.igexin.sdk.action.pushmanager" />
+            </intent-filter>
+        </receiver>
+
+        <activity
+            android:name="com.igexin.sdk.PushActivity"
+            android:process=":pushservice"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:taskAffinity="com.igexin.sdk.PushActivityTask"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
+        
+		<service android:name="com.igexin.download.DownloadService" android:process=":pushservice" />
+		<receiver android:name="com.igexin.download.DownloadReceiver"> 
+			<intent-filter>
+				<action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+			</intent-filter>
+		</receiver>
+		<provider
+		    android:process=":pushservice" 
+		    android:name="com.igexin.download.DownloadProvider"
+			android:authorities="downloads.communicate"	/>
+			<!-- android:authorities="downloads.第三方包名" -->
+		
+        <activity android:name="com.igexin.getuiext.activity.GetuiExtActivity"  
+        	android:configChanges="orientation|keyboard|keyboardHidden"
+            android:excludeFromRecents="true"
+            android:process=":pushservice"
+            android:taskAffinity="android.task.myServicetask"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:exported="false" />
+        
+        <receiver android:name="com.igexin.getuiext.service.PayloadReceiver" android:exported="false" >
+			<intent-filter>
+			  	<!-- 这个com.igexin.sdk.action.7fjUl2Z3LH6xYy7NQK4ni4固定，不能修改 --> 
+				<action android:name="com.igexin.sdk.action.7fjUl2Z3LH6xYy7NQK4ni4" />
+				<!-- android:name="com.igexin.sdk.action.第三方的appId" -->				
+				<action android:name="com.igexin.sdk.action.0yZq9kruSq8zvSpYB2UiA1" />
+			</intent-filter>
+		</receiver>
+        
+        <service android:name="com.igexin.getuiext.service.GetuiExtService" android:process=":pushservice" />
+        
+        <!-- 推送模块配置结束 -->
+        
     </application>
 
 </manifest>
