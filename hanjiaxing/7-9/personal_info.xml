@@ -1,31 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    android:background="@drawable/table_shape"
+    android:orientation="vertical"
     tools:context=".MainActivity" >
-	<RelativeLayout
-        android:id="@+id/login_top_layout"
-        android:layout_width="fill_parent"
-        android:layout_height="40dp"
-        android:layout_alignParentRight="true"
-        android:background="@drawable/login_top_bg"
-        android:gravity="top" >
 
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="23dp"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="5dp"
-            android:gravity="center"
-            android:text="个人信息"
-            android:textColor="#ffffff"
-            android:textSize="17sp"
-            android:textStyle="bold" />
-        
-    </RelativeLayout>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
