@@ -8,6 +8,7 @@ import android.app.ActionBar;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -37,7 +38,7 @@ public class ControlActivity extends FragmentActivity implements
 	 * The {@link ViewPager} that will host the section contents.
 	 */
 	ViewPager mViewPager;
-
+	private final Handler handler = new Handler();
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -110,10 +111,26 @@ public class ControlActivity extends FragmentActivity implements
 	}
 	
 	@Override
-	public boolean onOptionsItemSelected(MenuItem item){
+	public boolean onOptionsItemSelected(final MenuItem item){
 		switch(item.getItemId()){
-			case R.id.action_settings: 	startActivity(new Intent(ControlActivity.this,SetupActivity.class));
-						break;
+			case R.id.action_settings: 	
+				startActivity(new Intent(ControlActivity.this,SetupActivity.class));
+				break;
+			case R.id.menu_add: 	
+				startActivity(new Intent(ControlActivity.this,SearchfriendActivity.class));
+				break;
+				
+			case R.id.menu_refresh:
+				//选中刷新按钮后刷新一秒钟
+				item.setActionView(R.layout.actionbar_progress);
+				handler.postDelayed(new Runnable() {
+					public void run() {
+						item.setActionView(null);
+					}
+				}, 1000);
+				
+				break;
+				
 			default:
 				return super.onOptionsItemSelected(item);
 		

@@ -50,16 +50,14 @@ public class SetupActivity extends Activity {
                 if(map.get("title").equals("关于易助")) 
                 { 
                     Intent intent = new Intent(); 
-                    //intent.setClass(SetupActivity.this, aboutYiZhu.class);
+                    intent.setClass(SetupActivity.this, aboutYiZhu.class);
                     startActivity(intent); 
-                    finish();
                 } 
                 if(map.get("title").equals("意见反馈")) 
                 { 
                     Intent intent = new Intent(); 
-                    //intent.setClass(SetupActivity.this, Feekback.class);
+                    intent.setClass(SetupActivity.this, Feekback.class);
                     startActivity(intent); 
-                    finish();
                 } 
                 
                 if(map.get("title").equals("个人信息")) 
