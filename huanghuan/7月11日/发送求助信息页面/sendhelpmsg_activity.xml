@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FF45b97c">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_marginLeft="5dp"
+    	    android:layout_marginRight="5dp"
+    	    android:layout_marginTop="5dp"
+    	    android:layout_marginBottom="5dp"
+        	android:layout_height="40dp"
+        	android:background="@drawable/table_shape"
+        	android:text="返回"/>
+        
+        <TextView             
+            android:layout_width="wrap_content"
+        	android:layout_height="wrap_content"
+        	android:layout_gravity="center"
+        	android:gravity="center"
+        	android:layout_weight="1"
+        	android:textColor="#FFFFFFFF"
+        	android:textSize="25sp"
+        	android:text="发出求助"/>
+        
+        <Button
+            android:layout_width="wrap_content"
+        	android:layout_height="40dp"
+        	android:layout_marginLeft="5dp"
+    	    android:layout_marginRight="5dp"
+    	    android:layout_marginTop="5dp"
+    	    android:layout_marginBottom="5dp"
+        	android:background="@drawable/table_shape"
+        	android:text="发送"/>
+        
+    </LinearLayout> 
+    
+    
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1" >
+    
+    	<EditText
+    	    android:id="@+id/send_msg"
+    	    android:layout_marginLeft="5dp"
+    	    android:layout_marginRight="5dp"
+    	    android:layout_marginTop="5dp"
+    	    android:layout_width="match_parent"
+    	    android:layout_height="wrap_content"
+    	    android:background="@drawable/table_shape"
+    	    android:gravity="top"
+    	    android:lines="7"
+    	    android:inputType="textMultiLine"
+    	    android:hint="您想说点什么呢..." />
+
+        <Button
+            android:id="@+id/voice"
+            android:layout_marginLeft="5dp"
+    	    android:layout_marginRight="5dp"
+    	    android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_below="@id/send_msg"
+            android:background="@drawable/table_shape"
+            android:text="语音" />
+        <Button
+            android:id="@+id/video"
+            android:layout_marginLeft="5dp"
+    	    android:layout_marginRight="5dp"
+    	    android:layout_marginTop="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_below="@id/send_msg"
+            android:layout_toRightOf="@id/voice"
+            android:background="@drawable/table_shape"
+            android:text="视频" />
+
+        <Spinner
+            android:id="@+id/common_sentence"
+            android:layout_marginLeft="5dp"
+    	    android:layout_marginRight="5dp"
+    	    android:layout_marginTop="5dp"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/send_msg" />
+
+    </RelativeLayout>
+    
+</LinearLayout>
