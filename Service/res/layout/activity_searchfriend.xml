@@ -1,0 +1,130 @@
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/RelativeLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SearchfriendActivity" >
+
+    <RelativeLayout
+        android:id="@+id/login_top_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/login_top_bg"
+        android:gravity="top" >
+
+        <TextView
+            android:layout_width="100dp"
+            android:layout_height="23dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="查找好友"
+            android:textColor="#ffffff"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/search_name"
+        android:layout_toRightOf="@+id/find"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/search_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/edit_name"
+        android:layout_below="@+id/login_top_layout"
+        android:layout_marginTop="19dp"
+        android:text="精确查找："
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="20dp" />
+
+    <EditText
+        android:id="@+id/edit_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/search_name"
+        android:layout_marginTop="14dp"
+        android:ems="10"
+        android:hint="请输入ID号/昵称/姓名"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/find"
+        android:layout_width="90dp"
+        android:layout_height="40dp"
+        android:layout_above="@+id/textView1"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/main_login_selector"
+        android:text="查找"
+        android:textSize="15sp" />
+
+    <Spinner
+        android:id="@+id/oldrange_spinner"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/sextype_spinner"
+        android:layout_below="@+id/sextype_spinner"
+        android:layout_marginTop="22dp" />
+
+    <Button
+        android:id="@+id/nearpeople"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/oldrange_spinner"
+        android:layout_marginTop="23dp"
+        android:layout_toLeftOf="@+id/linearLayout1"
+        android:background="#ffffff"
+        android:gravity="center_vertical|left"
+        android:text="附近的人" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/edit_name"
+        android:layout_marginTop="52dp"
+        android:text="模糊查找："
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="20sp" />
+
+    <Spinner
+        android:id="@+id/sextype_spinner"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/edit_name"
+        android:layout_centerVertical="true" />
+
+    <TextView
+        android:id="@+id/sex_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:text="性别："
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/old_range"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/oldrange_spinner"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="14dp"
+        android:text="年龄："
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="20sp" />
+
+</RelativeLayout>

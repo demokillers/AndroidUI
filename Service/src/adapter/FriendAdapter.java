@@ -4,7 +4,7 @@ import java.util.List;
 
 import client.ui.R;
 
-import base.user;
+import base.friend;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -20,10 +20,10 @@ public class FriendAdapter extends BaseExpandableListAdapter {
 	private Context mContext;
 	private LayoutInflater mInflater = null;
 	private String[] mGroupStrings = null;
-	private List<List<user>> mData = null; //表示列表中每一项的内容
+	private List<List<friend>> mData = null; //表示列表中每一项的内容
 	
 	//构造函数
-	public FriendAdapter(Context ctx, List<List<user>> list, String groups[])
+	public FriendAdapter(Context ctx, List<List<friend>> list, String groups[])
 	{
 		mContext = ctx;
 		mInflater = (LayoutInflater)mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -32,14 +32,14 @@ public class FriendAdapter extends BaseExpandableListAdapter {
 		mData = list;
 	}
 	
-	public void setData(List<List<user>>list)
+	public void setData(List<List<friend>>list)
 	{
 		mData = list;
 	}
 	
 	//下面重写各个函数
 	@Override
-	public user getChild(int groupPosition, int childPosition) {
+	public friend getChild(int groupPosition, int childPosition) {
 		// TODO Auto-generated method stub
 		return mData.get(groupPosition).get(childPosition);
 	}
@@ -75,7 +75,7 @@ public class FriendAdapter extends BaseExpandableListAdapter {
 	}
 
 	@Override
-	public List<user> getGroup(int groupPosition) {
+	public List<friend> getGroup(int groupPosition) {
 		// TODO Auto-generated method stub
 		return mData.get(groupPosition);
 	}
