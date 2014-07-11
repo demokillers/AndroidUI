@@ -22,6 +22,7 @@ import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,22 +42,36 @@ public class PersonalInfoActivity extends Activity {
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.personal_info);
 		
-		final TextView name = (TextView)findViewById(R.id.conten_name);
-		final TextView sex = (TextView)findViewById(R.id.content_sex);
-		final TextView age = (TextView)findViewById(R.id.content_age);
-		final TextView phone = (TextView)findViewById(R.id.content_phone);
-		final TextView address = (TextView)findViewById(R.id.content_address);
-		final TextView disease = (TextView)findViewById(R.id.content_disease);
+		final TextView nameTV = (TextView)findViewById(R.id.personal_info_name);
+		final TextView sexTV = (TextView)findViewById(R.id.personal_info_sex);
+		final TextView ageTV = (TextView)findViewById(R.id.personal_info_age);
+		final TextView phoneTV = (TextView)findViewById(R.id.personal_info_phone);
+		final TextView addressTV = (TextView)findViewById(R.id.personal_info_address);
+		final TextView diseaseTV = (TextView)findViewById(R.id.personal_info_disease);
+		RatingBar creditRB = (RatingBar)findViewById(R.id.personal_info_ratingBar);
+		TextView pointTV = (TextView)findViewById(R.id.personal_info_point);
 		portrait = (ImageView)findViewById(R.id.imageview);
 		
-		name.setText("罗罗亚·索隆");
-		sex.setText("男");
-		age.setText("20");
-		phone.setText("0000");
-		address.setText("东海-霜月村");
-		disease.setText("路痴");
+		String name="罗罗亚·索隆";
+		String sex="男";
+		String age="20";
+		String phone="0000";
+		String address="东海-霜月村";
+		String disease="路痴";
+		String rating="4";
+		String point="0";
 		
-		TextView label_portrait = (TextView)findViewById(R.id.label_portrait);
+		nameTV.setText(name);
+		sexTV.setText(sex);
+		ageTV.setText(age);
+		phoneTV.setText(phone);
+		addressTV.setText(address);
+		diseaseTV.setText(disease);
+		creditRB.setRating(Float.parseFloat(rating));
+		pointTV.setText(point);
+		//portrait.setImageResource(R.drawable.bb_boy);
+		
+		TextView label_portrait = (TextView)findViewById(R.id.personal_info_label_portrait);
 		label_portrait.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
@@ -86,7 +101,7 @@ public class PersonalInfoActivity extends Activity {
 			}	
 		});
 		
-		TextView label_name = (TextView)findViewById(R.id.lable_name);
+		TextView label_name = (TextView)findViewById(R.id.personal_info_lable_name);
 		label_name.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0) {
@@ -109,7 +124,7 @@ public class PersonalInfoActivity extends Activity {
 								if(input.equals(""))
 									Toast.makeText(getApplicationContext(), "亲，输入内容不能为空", Toast.LENGTH_SHORT).show();
 								else{
-									name.setText(input);
+									nameTV.setText(input);
 									field.set(dialog,true);
 								}
 							} catch (Exception e) {
@@ -117,12 +132,24 @@ public class PersonalInfoActivity extends Activity {
 							}
 						}				  
 					  })
-					  .setNegativeButton("取消",null)
+					  .setNegativeButton("取消",new AlertDialog.OnClickListener(){
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							// TODO Auto-generated method stub
+							try {
+								Field field = dialog.getClass().getSuperclass().getDeclaredField("mShowing");
+								field.setAccessible(true);
+								field.set(dialog,true);
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+						}					  
+					  })
 					  .show();
 			}	
 		});
 		
-		TextView label_sex = (TextView)findViewById(R.id.label_sex);
+		TextView label_sex = (TextView)findViewById(R.id.personal_info_label_sex);
 		label_sex.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0) {
@@ -136,7 +163,7 @@ public class PersonalInfoActivity extends Activity {
 						  public void onClick(DialogInterface dialog, int which) {
 							  // TODO Auto-generated method stub
 							  String mysex = items[which];
-							  sex.setText(mysex);
+							  sexTV.setText(mysex);
 						  }			
 					  })
 				     .setPositiveButton("确定", null)
@@ -144,7 +171,7 @@ public class PersonalInfoActivity extends Activity {
 			}		
 		});
 		
-		TextView label_age = (TextView)findViewById(R.id.label_age);
+		TextView label_age = (TextView)findViewById(R.id.personal_info_label_age);
 		label_age.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0) {
@@ -167,7 +194,7 @@ public class PersonalInfoActivity extends Activity {
 								if(input.equals(""))
 									Toast.makeText(getApplicationContext(), "亲，输入内容不能为空", Toast.LENGTH_SHORT).show();
 								else{
-									age.setText(input);
+									ageTV.setText(input);
 									field.set(dialog,true);
 								}
 							} catch (Exception e) {
@@ -175,12 +202,24 @@ public class PersonalInfoActivity extends Activity {
 							}
 						}				  
 					  })
-					  .setNegativeButton("取消",null)
+					  .setNegativeButton("取消",new AlertDialog.OnClickListener(){
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							// TODO Auto-generated method stub
+							try {
+								Field field = dialog.getClass().getSuperclass().getDeclaredField("mShowing");
+								field.setAccessible(true);
+								field.set(dialog,true);
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+						}					  
+					  })
 					  .show();
 			}		
 		});
 		
-		TextView label_phone = (TextView)findViewById(R.id.label_phone);
+		TextView label_phone = (TextView)findViewById(R.id.personal_info_label_phone);
 		label_phone.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0) {
@@ -203,7 +242,7 @@ public class PersonalInfoActivity extends Activity {
 								if(input.equals(""))
 									Toast.makeText(getApplicationContext(), "亲，输入内容不能为空", Toast.LENGTH_SHORT).show();
 								else{
-									phone.setText(input);
+									phoneTV.setText(input);
 									field.set(dialog,true);
 								}
 							} catch (Exception e) {
@@ -211,12 +250,24 @@ public class PersonalInfoActivity extends Activity {
 							}	
 						}				  
 					  })
-					  .setNegativeButton("取消",null)
+					  .setNegativeButton("取消",new AlertDialog.OnClickListener(){
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							// TODO Auto-generated method stub
+							try {
+								Field field = dialog.getClass().getSuperclass().getDeclaredField("mShowing");
+								field.setAccessible(true);
+								field.set(dialog,true);
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+						}					  
+					  })
 					  .show();
 			}		
 		});
 		
-		TextView label_address = (TextView)findViewById(R.id.label_address);
+		TextView label_address = (TextView)findViewById(R.id.personal_info_label_address);
 		label_address.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0) {
@@ -239,7 +290,7 @@ public class PersonalInfoActivity extends Activity {
 								if(input.equals(""))
 									Toast.makeText(getApplicationContext(), "亲，输入内容不能为空", Toast.LENGTH_SHORT).show();
 								else{
-									address.setText(input);
+									addressTV.setText(input);
 									field.set(dialog,true);
 								}
 							} catch (Exception e) {
@@ -247,12 +298,24 @@ public class PersonalInfoActivity extends Activity {
 							}	
 						}				  
 					  })
-					  .setNegativeButton("取消",null)
+					  .setNegativeButton("取消",new AlertDialog.OnClickListener(){
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							// TODO Auto-generated method stub
+							try {
+								Field field = dialog.getClass().getSuperclass().getDeclaredField("mShowing");
+								field.setAccessible(true);
+								field.set(dialog,true);
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+						}					  
+					  })
 					  .show();
 			}	
 		});
 		
-		TextView label_disease = (TextView)findViewById(R.id.label_disease);
+		TextView label_disease = (TextView)findViewById(R.id.personal_info_label_disease);
 		label_disease.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View arg0) {
@@ -275,7 +338,7 @@ public class PersonalInfoActivity extends Activity {
 								if(input.equals(""))	
 									Toast.makeText(getApplicationContext(), "亲，输入内容不能为空", Toast.LENGTH_SHORT).show();
 								else{
-									disease.setText(input);
+									diseaseTV.setText(input);
 									field.set(dialog,true);
 								}
 							} catch (Exception e) {
@@ -283,7 +346,19 @@ public class PersonalInfoActivity extends Activity {
 							}				
 						}				  
 					  })
-					  .setNegativeButton("取消",null)
+					  .setNegativeButton("取消",new AlertDialog.OnClickListener(){
+						@Override
+						public void onClick(DialogInterface dialog, int which) {
+							// TODO Auto-generated method stub
+							try {
+								Field field = dialog.getClass().getSuperclass().getDeclaredField("mShowing");
+								field.setAccessible(true);
+								field.set(dialog,true);
+							} catch (Exception e) {
+								e.printStackTrace();
+							}
+						}					  
+					  })
 					  .show();
 			}	
 		});

@@ -3,8 +3,12 @@ package client.ui;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Resources.NotFoundException;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
@@ -24,7 +28,6 @@ public class LoginActivity extends Activity implements OnClickListener{
 	EditText userEdit,passwdEdit;
 	RelativeLayout loginLayout;
 	Login login;
-	PushSender push;
 	String userEditStr,passwdEditStr;
 	ProgressBar pro;
 	private Map<String,Object> data=new HashMap<String,Object>();
@@ -83,10 +86,9 @@ public class LoginActivity extends Activity implements OnClickListener{
 
         @Override
         protected String doInBackground(Void... params) { 
-        	push=new PushSender(LoginActivity.this);
         	data.put("username", userEditStr); 
             data.put("password", passwdEditStr);
-            return push.sendMessage("login",data);
+            return PushSender.sendMessage("login",data);
         }
         @Override
         protected void onPreExecute() {   
@@ -99,9 +101,31 @@ public class LoginActivity extends Activity implements OnClickListener{
             	pro.setVisibility(View.INVISIBLE);
         	}
         	if(result.equals("error")){
-        		Toast.makeText(LoginActivity.this,"您的网络状况不好", Toast.LENGTH_SHORT).show();
+        		Toast.makeText(LoginActivity.this,"连接服务器失败", Toast.LENGTH_SHORT).show();
             	pro.setVisibility(View.INVISIBLE);
         	}
+            super.onPostExecute(result);
+            try {
+            	switch (new JSONObject(result).getInt("state")) {
+            	case 1:
+            		Toast.makeText(LoginActivity.this, "用户不存在", Toast.LENGTH_SHORT).show();
+            		break;
+            	case 2:
+            		Toast.makeText(LoginActivity.this, "密码错误", Toast.LENGTH_SHORT).show();
+            		break;
+            	case 3:
+            		Toast.makeText(LoginActivity.this, "登录成功", Toast.LENGTH_SHORT).show();
+            		break;
+            	default:
+            		Toast.makeText(LoginActivity.this, "服务器错误", Toast.LENGTH_SHORT).show();
+            	}
+			} catch (NotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
             super.onPostExecute(result);
         }
     }

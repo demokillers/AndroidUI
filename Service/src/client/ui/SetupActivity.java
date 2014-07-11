@@ -33,7 +33,7 @@ public class SetupActivity extends Activity {
 		
 		setData();
 		
-		SimpleAdapter listAdapter = new SimpleAdapter(this, listItem, R.layout.setting_list_items, new String[] {"title"}, new int[] {R.id.textView1});
+		SimpleAdapter listAdapter = new SimpleAdapter(this, listItem, R.layout.setlist_items, new String[] {"title"}, new int[] {R.id.textView1});
 		
 		list.setAdapter(listAdapter); 
 

@@ -9,6 +9,7 @@ package client.ui;
 
 public final class Manifest {
     public static final class permission {
+        public static final String BAIDU_LOCATION_SERVICE="android.permission.BAIDU_LOCATION_SERVICE";
         /**   自定义权限 
          */
         public static final String GetuiService="getui.permission.GetuiService";
