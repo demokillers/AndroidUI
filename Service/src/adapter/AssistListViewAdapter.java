@@ -92,7 +92,7 @@ public class AssistListViewAdapter extends BaseAdapter {
 		if (currentType == FIRST_TYPE){   //第一行求助信息
 			if (convertView == null){
 				firstItemView = new FirstItemView();
-				convertView = listContainer.inflate(R.layout.first_item, null);
+				convertView = listContainer.inflate(R.layout.help_item, null);
 				
 				firstItemView.image = (ImageView)convertView.findViewById(R.id.imageItem1);
 				firstItemView.name = (TextView)convertView.findViewById(R.id.nameItem1);   

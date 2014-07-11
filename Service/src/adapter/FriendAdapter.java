@@ -56,7 +56,7 @@ public class FriendAdapter extends BaseExpandableListAdapter {
             boolean isLastChild, View convertView, ViewGroup parent) {
 		// TODO Auto-generated method stub
 		if (convertView == null) { 
-            convertView = mInflater.inflate(R.layout.child_item_layout, null); 
+            convertView = mInflater.inflate(R.layout.friendchild, null); 
         } 
         ChildViewHolder holder = new ChildViewHolder(); 
         holder.mIcon = (ImageView) convertView.findViewById(R.id.img); 
@@ -98,7 +98,7 @@ public class FriendAdapter extends BaseExpandableListAdapter {
 		// TODO Auto-generated method stub
 		if(convertView == null)
 		{
-			convertView = mInflater.inflate(R.layout.group_item_layout, null);
+			convertView = mInflater.inflate(R.layout.friendgroup, null);
 		}
 		GroupViewHolder holder = new GroupViewHolder(); 
         holder.mGroupName = (TextView) convertView.findViewById(R.id.group_name); 
