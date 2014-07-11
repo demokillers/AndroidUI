@@ -2,7 +2,6 @@ package communicate;
 
 import java.util.Map;
 
-import android.app.Activity;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -29,19 +28,13 @@ public class PushSender {
 	public static final String SEND_SUPPORT_MESSAGE = "sendsupport"; // 发送援助信息
 	public static final String QUIT_AID = "quitaid"; // 退出帮助
 	
-	private Activity activity = null;
-	
-	public PushSender(Activity activity) {
-		this.activity = activity;
-	}
-	
 	/**
 	 * 向服务器发送数据
 	 * @param action
 	 * @param map
 	 * @return
 	 */
-	public String sendMessage(String action, Map<String, Object> map) {
+	public static String sendMessage(String action, Map<String, Object> map) {
 		if (isNetworkConnected()) {
 			return GetuiSdkHttpPost.httpPost(action, map);
 		} else {
@@ -54,8 +47,8 @@ public class PushSender {
 	 * 判断网络是否连接
 	 * @return
 	 */
-	public boolean isNetworkConnected() {
-		ConnectivityManager mConnectivityManager = (ConnectivityManager) activity.getSystemService(Context.CONNECTIVITY_SERVICE);
+	public static boolean isNetworkConnected() {
+		ConnectivityManager mConnectivityManager = (ConnectivityManager) PushConfig.applicationContext.getSystemService(Context.CONNECTIVITY_SERVICE);
 		NetworkInfo mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
 		
 		if (mNetworkInfo != null) {

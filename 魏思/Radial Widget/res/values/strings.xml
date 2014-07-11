@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Radial Menu</string>
+
+	<string name="health_body"></string>
+	<string name="security_body"></string>
+	<string name="life_body"></string>
+
+	<string name="health">健康</string>
+	<string name="security">安全</string>
+	<string name="life">生活</string>
+	
+	<string name="close1"></string>
+	<string name="close2"></string>
+	<string name="help1">求</string>
+	<string name="help2">助</string>
+	
+</resources>

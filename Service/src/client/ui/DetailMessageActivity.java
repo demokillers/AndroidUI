@@ -44,7 +44,7 @@ public class DetailMessageActivity extends Activity {
 		
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.detailmessage_activity);
+		setContentView(R.layout.messagedetail);
 		
 		
 		listView = (ListView)findViewById(R.id.assist_list);

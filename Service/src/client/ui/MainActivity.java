@@ -10,6 +10,9 @@ import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.Button;
 
+import com.igexin.sdk.PushManager;
+import communicate.PushConfig;
+
 public class MainActivity extends Activity implements OnClickListener{
 
 	Button loginBtn,registBtn;
@@ -22,6 +25,8 @@ public class MainActivity extends Activity implements OnClickListener{
         registBtn = (Button)findViewById(R.id.main_regist_btn);
         loginBtn.setOnClickListener(this);
         registBtn.setOnClickListener(this);
+        PushConfig.applicationContext = this.getApplicationContext();
+        PushManager.getInstance().initialize(this.getApplicationContext());
     }
 	@Override
 	public void onClick(View v) {
