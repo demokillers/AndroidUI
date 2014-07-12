@@ -1,0 +1,8 @@
+详细求助信息页面布局调整：
+给求助信息加上边框以区分开下边的援助信息，同时字体头像都增大。
+
+体现在：
+detailmessage_activity.xml  略微更改
+first_item.xml  略微更改
+
+其中引用的 table_shape.xml 仍是原先 注册页面的那个布局文件。

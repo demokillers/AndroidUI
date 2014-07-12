@@ -9,15 +9,14 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.security.NoSuchAlgorithmException;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.SortedMap;
 import java.util.TreeMap;
-import java.util.Map.Entry;
 
 import org.json.simple.JSONObject;
 
 public class GetuiSdkHttpPost {
 
-	public static final String SERVICEURL = "http://114.215.133.61:8000/api/";
 	public static final int CONNECTION_TIMEOUT_INT = 8000;
 	public static final int READ_TIMEOUT_INT = 5000;
 
@@ -30,7 +29,7 @@ public class GetuiSdkHttpPost {
 			URL url = null;
 
 			try {
-				url = new URL(SERVICEURL + action);
+				url = new URL(PushConfig.SERVICEURL + action);
 				HttpURLConnection urlConn = (HttpURLConnection) url.openConnection();
 				urlConn.setDoInput(true); // 设置输入流采用字节流
 				urlConn.setDoOutput(true); // 设置输出流采用字节流

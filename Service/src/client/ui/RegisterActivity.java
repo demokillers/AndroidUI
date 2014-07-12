@@ -35,7 +35,7 @@ public class RegisterActivity extends Activity implements OnClickListener{
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		
-		setContentView(R.layout.register_activity);
+		setContentView(R.layout.register);
 		init();
 		
 		
