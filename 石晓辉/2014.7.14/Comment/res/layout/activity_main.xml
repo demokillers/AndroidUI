@@ -1,0 +1,43 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+    
+        <RelativeLayout
+        android:id="@+id/top_layout"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/login_top_bg"
+        android:gravity="top" >
+
+        <TextView
+            android:id="@+id/textview1"
+            android:layout_width="wrap_content"
+            android:layout_height="23dp"
+            android:layout_marginLeft="5dp"
+            android:layout_centerInParent="true"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:text="评价帮客"
+           />    
+    </RelativeLayout>
+   
+    		<ListView
+    		    android:id="@android:id/list"
+    		    android:layout_width="match_parent"
+    		    android:layout_height="378dp" >
+    		</ListView>
+
+    		<Button
+    		    android:id="@+id/button1"
+    		    android:layout_width="wrap_content"
+    		    android:layout_height="wrap_content"
+    		    android:layout_gravity="center_horizontal"
+    		    android:text="提交评论" />
+
+</LinearLayout>
