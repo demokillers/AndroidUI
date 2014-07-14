@@ -1,0 +1,35 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+         >
+    
+    <TextView 
+        android:layout_width="fill_parent"
+   		android:layout_height="wrap_content"
+   		android:gravity="center_horizontal"
+   		android:textSize="30sp"
+   		android:background="#FF000000"
+   		android:textColor="#FFFFFFFF"
+    	android:text="评分"/>
+    
+    <ScrollView 
+      android:id="@+id/scrollView1"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"  >
+      
+	    <ListView 
+	        android:id="@+id/score_listview"
+	        android:layout_width="fill_parent"  
+	        android:layout_height="wrap_content" /> 
+    </ScrollView>
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10sp"
+        android:text="提交" />
+    
+</LinearLayout>

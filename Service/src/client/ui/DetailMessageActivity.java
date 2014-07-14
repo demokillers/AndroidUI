@@ -19,7 +19,7 @@ public class DetailMessageActivity extends Activity {
 	private Integer[] imgeIDs = {R.drawable.cake,    
             R.drawable.gift, R.drawable.letter,   
             R.drawable.love, R.drawable.mouse,   
-            R.drawable.music};  
+            R.drawable.music}; 
 	private String[] name = {"µ∞∏‚", "¿ÒŒÔ",    
             "” ∆±", "∞Æ–ƒ", " Û±Í", "“Ù¿÷CD"}; 
 	

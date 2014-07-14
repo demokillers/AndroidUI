@@ -37,8 +37,8 @@ public class FriendInfoActivity extends Activity{
 		String rating="4";
 		String point="0";
 		
-		userTV.setText("Í«≥∆  "+user);
-		nameTV.setText("–’√˚  "+name);
+		userTV.setText("Í«≥∆   "+user);
+		nameTV.setText("–’√˚   "+name);
 		ageTV.setText(age);
 		sexTV.setText(sex);
 		phoneTV.setText(phone);

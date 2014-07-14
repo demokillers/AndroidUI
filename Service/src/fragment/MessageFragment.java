@@ -54,9 +54,7 @@ public class MessageFragment extends Fragment{
 	}
 	@Override
     public View onCreateView(LayoutInflater inflater,
-    ViewGroup container, Bundle savedInstanceState) { 
-		
-			      
+    ViewGroup container, Bundle savedInstanceState) { 	      
 		return view;
    }
 	
@@ -101,8 +99,7 @@ public class MessageFragment extends Fragment{
 	}
 	 
 	private void setdata(){
-		
-		
+			
 		//加入求助信息
 		Map<String, Object> first_map = new HashMap<String, Object>();   
 		first_map.put("image", (Integer)R.drawable.shopping);    //图片资源   
@@ -119,7 +116,7 @@ public class MessageFragment extends Fragment{
 	        map.put("name", name[i]);              //用户名
 	        map.put("time", time[i]);              //时间   
 	        map.put("content", content[i]);        //援助内容   
-	        datalist.add(map);   
+	        datalist.add(map);
 	    }      
 	    myadapter.notifyDataSetChanged();
 	        
