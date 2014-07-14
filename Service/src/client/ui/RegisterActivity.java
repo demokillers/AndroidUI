@@ -3,23 +3,35 @@ package client.ui;
 import java.io.File;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.util.HashMap;
+import java.util.Map;
 
-import android.net.Uri;
-import android.os.Bundle;
-import android.os.Environment;
-import android.provider.MediaStore;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources.NotFoundException;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
-import android.view.Menu;
+import android.net.Uri;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.os.Environment;
+import android.provider.MediaStore;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioGroup;
+import android.widget.Toast;
+
+import communicate.PushSender;
 
 public class RegisterActivity extends Activity implements OnClickListener{
 	
@@ -29,12 +41,16 @@ public class RegisterActivity extends Activity implements OnClickListener{
 	private static final int PHOTO_REQUEST_CUT = 3;// 结果
 	// 创建一个以当前时间为名称的文件
 	File tempFile = new File(Environment.getExternalStorageDirectory(), getPhotoFileName());
+	private EditText userId,name,phone,rephone,idcard,address,sickness,age,password,password1;
+	private Button cancel,register;
+	private RadioGroup gender;
+	private Map<String,Object> data=new HashMap<String,Object>();
+	private Regis regis;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
-		
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.register);
 		init();
 		
@@ -44,9 +60,37 @@ public class RegisterActivity extends Activity implements OnClickListener{
 	//初始化控件
 	private void init() {
 		img_view = (ImageView) findViewById(R.id.portrait);
+		userId=(EditText)findViewById(R.id.user);
+		name=(EditText)findViewById(R.id.name);
+		phone=(EditText)findViewById(R.id.idNumber);
+		rephone=(EditText)findViewById(R.id.relative);
+		idcard=(EditText)findViewById(R.id.teleNumber);
+		address=(EditText)findViewById(R.id.address);
+		sickness=(EditText)findViewById(R.id.sickness);
+		age=(EditText)findViewById(R.id.age);
+		password=(EditText)findViewById(R.id.password);
+		password1=(EditText)findViewById(R.id.password2);
+		cancel=(Button)findViewById(R.id.cancel);
+		register=(Button)findViewById(R.id.register);
 		//为ImageView添加监听事件
 		img_view.setOnClickListener(this);
-
+		register.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				regis=new Regis();
+				regis.execute();
+			}
+		});
+		cancel.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				finish();
+			}
+		});
 	}
 	
 	//点击事件
@@ -58,7 +102,6 @@ public class RegisterActivity extends Activity implements OnClickListener{
 		case R.id.portrait:			
 			showDialog();
 			break;
-		
 		}
 
 	}
@@ -153,6 +196,56 @@ public class RegisterActivity extends Activity implements OnClickListener{
 		SimpleDateFormat dateFormat = new SimpleDateFormat("'IMG'_yyyyMMdd_HHmmss");
 		return dateFormat.format(date) + ".jpg";
 	}
+	
+	private class Regis extends AsyncTask<Void, Void, String> {
 
+        @Override
+        protected String doInBackground(Void... params) { 
+        	data.put("username","你好"); 
+            data.put("password","你好");
+            data.put("kind","你好");
+            data.put("cardid","你好");
+            data.put("realname","你好");
+            data.put("sex","1");
+            data.put("age","1");
+            data.put("address","你好");
+            data.put("illness","你好");
+            
+            return PushSender.sendMessage("register",data);
+        }
+        @Override
+        protected void onPreExecute() {   
+        	
+        }
+        @Override
+        protected void onPostExecute(String result) {   	
+        	if(result.equals("network error")){
+        		Toast.makeText(RegisterActivity.this,"您还没有联网", Toast.LENGTH_SHORT).show();
+        	}
+        	if(result.equals("error")){
+        		Toast.makeText(RegisterActivity.this,"连接服务器失败", Toast.LENGTH_SHORT).show();
+        	}
+            super.onPostExecute(result);
+            try {
+            	switch (new JSONObject(result).getInt("state")) {
+            	case 1:
+            		Toast.makeText(RegisterActivity.this, "用户名已经存在", Toast.LENGTH_SHORT).show();
+            		break;
+            	case 2:
+            		Toast.makeText(RegisterActivity.this, "身份证已经存在", Toast.LENGTH_SHORT).show();
+            		break;
+            	default:
+            		Toast.makeText(RegisterActivity.this, "注册成功", Toast.LENGTH_SHORT).show();
+            	}
+			} catch (NotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+            super.onPostExecute(result);
+        }
+    }
 }
 

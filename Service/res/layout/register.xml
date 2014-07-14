@@ -57,7 +57,7 @@
 		            android:layout_width="match_parent"
 		            android:layout_height="wrap_content"
 					android:layout_weight="1"
-					android:hint="昵称"
+					android:hint="用户名"
 		            android:ems="10"
 		            android:inputType="textPersonName" >
 		
@@ -259,7 +259,7 @@
 		    android:layout_gravity="center_horizontal"
 		    >
 			<Button
-            	android:id="@+id/register"
+            	android:id="@+id/cancel"
            		android:layout_width="wrap_content"
 			    android:layout_height="45dp"
 			    android:layout_weight="1"
@@ -269,7 +269,7 @@
             	android:textSize="15sp" />
 	
 			<Button
-			    android:id="@+id/cancel"
+			    android:id="@+id/register"
 			    android:layout_width="wrap_content"
 			    android:layout_height="45dp"
 			    android:layout_weight="1"

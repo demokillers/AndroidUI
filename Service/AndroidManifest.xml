@@ -114,6 +114,10 @@
             android:name="client.ui.aboutYiZhu" >
         </activity>
         <activity
+            android:name="client.ui.SendHelpMsgActivity" 
+            android:windowSoftInputMode="adjustUnspecified|stateVisible">
+        </activity>
+        <activity
             android:name="client.ui.SearchfriendActivity" >
         </activity>
         <activity
@@ -132,10 +136,20 @@
             android:name="radialdemo.RadialMenuSecurity" >
         </activity>   
         <activity
+            android:name="radialdemo.RadialMenuLife" >
+        </activity>
+        <activity
+            android:name="radialdemo.RadialMenuHealth" >
+        </activity>      
+        <activity
+            android:name="client.ui.AssistTipsActivity" >
+        </activity>    
+        <activity
             android:name="routeplan.RoutePlan"
             android:configChanges="orientation|keyboardHidden">
             
         </activity>
+        
         
         <!-- 推送模块配置开始 -->
         <!-- 配置第三方参数属性 -->
