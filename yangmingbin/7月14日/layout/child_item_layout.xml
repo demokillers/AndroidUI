@@ -1,0 +1,47 @@
+<!-- 这是显示列表展开后的布局文件，每个条目有一张图片，名字和描述 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" 
+    android:layout_width="fill_parent" 
+    android:layout_height="wrap_content" 
+    android:minHeight="50dp" 
+    style="color:#ff0000;"
+    android:descendantFocusability="blocksDescendants" 
+    
+    android:orientation="horizontal" > 
+ 
+    <ImageButton 
+        android:id="@+id/img" 
+        android:layout_width="40dp" 
+        android:layout_height="40dp" 
+        android:layout_marginLeft="2dip" 
+        android:layout_marginRight="10dip" 
+        
+        android:layout_gravity="center_vertical" /> 
+ 
+    <LinearLayout 
+        android:layout_width="wrap_content" 
+        android:layout_height="match_parent" 
+        android:descendantFocusability="blocksDescendants" 
+        android:orientation="vertical" > 
+ 
+        <TextView 
+            android:id="@+id/item_name" 
+            android:layout_width="wrap_content" 
+            android:layout_height="0.0dip" 
+            android:gravity="center_vertical" 
+            android:textColor="#6495ED"
+            android:textSize="16sp"
+            android:layout_weight="1" /> 
+ 
+        <TextView 
+            android:id="@+id/item_detail" 
+            android:layout_width="wrap_content" 
+            android:layout_height="0.0dip" 
+            android:gravity="center_vertical" 
+            android:singleLine="true" 
+            android:ellipsize="end" 
+            android:textSize="11sp"
+            android:layout_weight="1" /> 
+         
+    </LinearLayout> 
+ 
+</LinearLayout>
