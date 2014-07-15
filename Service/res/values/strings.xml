@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">易助</string>
-    <string name="action_settings">设置</string>
+    <string name="action_settings">系统设置</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="main_title">易助</string>
     <string name="main_login">登录</string>

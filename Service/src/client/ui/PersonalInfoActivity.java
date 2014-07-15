@@ -18,8 +18,8 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.Menu;
 import android.view.View;
-import android.view.Window;
 import android.view.View.OnClickListener;
+import android.view.Window;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RatingBar;
@@ -50,7 +50,7 @@ public class PersonalInfoActivity extends Activity {
 		final TextView diseaseTV = (TextView)findViewById(R.id.personal_info_disease);
 		RatingBar creditRB = (RatingBar)findViewById(R.id.personal_info_ratingBar);
 		TextView pointTV = (TextView)findViewById(R.id.personal_info_point);
-		portrait = (ImageView)findViewById(R.id.imageview);
+		//portrait = (ImageView)findViewById(R.id.imageview);
 		
 		String name="ÂÞÂÞÑÇ¡¤Ë÷Â¡";
 		String sex="ÄÐ";
