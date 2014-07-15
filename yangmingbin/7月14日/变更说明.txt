@@ -1,0 +1,21 @@
+详细信息求助页面：
+
+first_item.xml 略改动
+
+bottom_button_fragment.xml
+页面底部三个按钮（导航，援助，结束）的布局变更，又系统中的Button改成TextView，加上图片和文字
+
+对应改变的Java文件，控件类型，监听事件
+BottomButtonFragment.java
+
+更改的布局用到较多的drawable文件。
+打包在drawable文件夹中
+
+###########################################
+好友管理页面
+
+图片圆角化处理，把用户列表的头像尺寸缩小并圆角化。
+
+变更文件：
+child_item_layout.xml
+ExpandAdapter.java

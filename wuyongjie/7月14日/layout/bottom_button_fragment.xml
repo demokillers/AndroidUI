@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+        
+    <TextView 
+        android:background="#FFE4E4E4"
+        android:id="@+id/button_navigate" 
+        android:text="导航" 
+        android:drawableTop="@drawable/detail_navigate_icon" 
+        style="@style/detail_btn" />
+    
+    <TextView 
+        android:background="#FFE4E4E4"
+        android:id="@+id/button_assist" 
+        android:text="援助" 
+        android:drawableTop="@drawable/detail_assist_icon" 
+        style="@style/detail_btn" />
+    
+    <TextView 
+        android:background="#FFE4E4E4"
+        android:id="@+id/button_conclude" 
+        android:text="结束" 
+        android:drawableTop="@drawable/detail_conclude_icon" 
+        style="@style/detail_btn" />
+    
+    <!--
+    <Button
+        android:id="@+id/button_navigate"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+         android:layout_weight="1"
+        android:text="导航" />
+
+    <Button
+        android:id="@+id/button_assist"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+         android:layout_weight="1"
+        android:text="援助" />
+
+    <Button
+        android:id="@+id/button_conclude"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="结束" />
+	  -->
+
+</LinearLayout>
+
