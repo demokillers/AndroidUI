@@ -27,6 +27,7 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
+import android.support.v4.app.Fragment;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -299,10 +300,9 @@ public class RadialMenuWidget extends View {
 			} else {
 				// This is when something outside the circle or any of the rings
 				// is selected
-				dismiss();
+				//dismiss();
 				// selected = null;
 				// enabled = null;
-				
 			}
 			// selected = null;
 			selected2 = null;
@@ -331,7 +331,7 @@ public class RadialMenuWidget extends View {
 			paint.setStyle(Paint.Style.FILL);
 			c.drawCircle(xSource, ySource, cRadius / 10, paint);
 		}
-
+//inner
 		for (int i = 0; i < Wedges.length; i++) {
 			RadialMenuWedge f = Wedges[i];
 			paint.setColor(outlineColor);
@@ -364,7 +364,7 @@ public class RadialMenuWidget extends View {
 				paint.setStyle(Paint.Style.FILL);
 				c.drawPath(f, paint);
 			}
-
+//button content
 			Rect rf = iconRect[i];
 
 			if ((menuEntries.get(i).getIcon() != 0)
@@ -439,7 +439,7 @@ public class RadialMenuWidget extends View {
 					paint.setAlpha(textAlpha);
 				}
 				paint.setStyle(Paint.Style.FILL);
-				paint.setTextSize(textSize);
+				paint.setTextSize(textSize + 10);
 
 				// This will look for a "new line" and split into multiple lines
 				String menuItemName = menuEntries.get(i).getLabel();
@@ -454,7 +454,7 @@ public class RadialMenuWidget extends View {
 					textHeight = textHeight + (rect.height() + 3);
 				}
 
-				float textBottom = rf.centerY() - (textHeight / 2) + 15;
+				float textBottom = rf.centerY() - (textHeight / 2);
 				for (int j = 0; j < stringArray.length; j++) {
 					paint.getTextBounds(stringArray[j], 0,
 							stringArray[j].length(), rect);
@@ -473,13 +473,13 @@ public class RadialMenuWidget extends View {
 		} else if (animateOuterOut == true) {
 			animateOuterWedges(ANIMATE_OUT);
 		}
-
+//outer
 		if (Wedge2Shown == true) {
 
 			for (int i = 0; i < Wedges2.length; i++) {
 				RadialMenuWedge f = Wedges2[i];
 				paint.setColor(outlineColor);
-				paint.setAlpha(outlineAlpha);
+				paint.setAlpha(20);
 				paint.setStyle(Paint.Style.STROKE);
 				c.drawPath(f, paint);
 				if (f == selected2) {

@@ -116,6 +116,10 @@ public class ControlActivity extends FragmentActivity implements
 			case R.id.action_settings: 	
 				startActivity(new Intent(ControlActivity.this,SetupActivity.class));
 				break;
+				
+			case R.id.action_tips : 	
+				startActivity(new Intent(ControlActivity.this,AssistTipsActivity.class));
+				break;
 			case R.id.menu_add: 	
 				startActivity(new Intent(ControlActivity.this,SearchfriendActivity.class));
 				break;
