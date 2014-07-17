@@ -57,16 +57,21 @@
         
 	 	<Button
 	 	    android:id="@+id/concernBut1"
+	 	    android:gravity="center_horizontal"
+	 	    android:layout_marginRight="4dp"
 	 	    android:layout_width="wrap_content"
-		    android:layout_height="35dp"
+		    android:layout_height="32dp"
 		    android:textSize="12sp"
+		    android:background="@drawable/table_shape" 
 		    android:layout_weight="0"/>
 	 	
 		<Button
 	 	    android:id="@+id/assistBut1"
+	 	    android:gravity="center_horizontal"
 	 	    android:layout_width="wrap_content"
-		    android:layout_height="35dp"
+		    android:layout_height="32dp"
 		    android:textSize="12sp"
+		    android:background="@drawable/table_shape" 
 		    android:layout_weight="0"/>
 	</LinearLayout>
 	

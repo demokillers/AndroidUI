@@ -23,7 +23,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshListView;
 public class MessageFragment extends Fragment{
 	private PullToRefreshListView mListView;
 	private MessageAdapter myadapter;
-	View view;
+	private View view;
 	private final Handler handler = new Handler();
 	private List<Map<String, Object>> datalist = new ArrayList<Map<String, Object>>(); ; 
 	private Integer[] imgeIDs = {R.drawable.cake,    
@@ -56,7 +56,10 @@ public class MessageFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater,
     ViewGroup container, Bundle savedInstanceState) { 
 		
-			      
+		ViewGroup p = (ViewGroup) view.getParent(); 
+        if (p != null) { 
+            p.removeAllViewsInLayout(); 
+        } 	      
 		return view;
    }
 	

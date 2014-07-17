@@ -50,7 +50,7 @@ public class PersonalInfoActivity extends Activity {
 		final TextView diseaseTV = (TextView)findViewById(R.id.personal_info_disease);
 		RatingBar creditRB = (RatingBar)findViewById(R.id.personal_info_ratingBar);
 		TextView pointTV = (TextView)findViewById(R.id.personal_info_point);
-		//portrait = (ImageView)findViewById(R.id.imageview);
+		portrait = (ImageView)findViewById(R.id.personal_info_portrait);
 		
 		String name="ÂÞÂÞÑÇ¡¤Ë÷Â¡";
 		String sex="ÄÐ";
@@ -364,12 +364,7 @@ public class PersonalInfoActivity extends Activity {
 		});
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
+
 	
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {

@@ -5,7 +5,7 @@
         android:id="@+id/menu_refresh"
         android:icon="@drawable/ic_menu_refresh_holo_light"
         android:showAsAction="ifRoom"
-        android:title="帅新"/>
+        android:title="刷新"/>
     <!-- 添加按钮图标 -->
     <item
         android:id="@+id/menu_add"
@@ -13,11 +13,10 @@
         android:showAsAction="ifRoom"
         android:title="添加"/>
     
-    <!-- 设置按钮图标 -->
     <item
         android:id="@+id/action_tips"
         android:showAsAction="never"
-        android:title="求助Tips"/>
+        android:title="求助提示"/>
     
     <!-- 设置按钮图标 -->
     <item
@@ -25,6 +24,9 @@
         android:showAsAction="never"
         android:title="@string/action_settings"/>
     
-    
+    <item
+		android:id="@+id/history"
+		android:showAsAction="never"
+		android:title="历史记录" />
 
 </menu>

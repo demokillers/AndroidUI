@@ -18,7 +18,7 @@
         <!-- Tab选项标签字体的样式 -->
     <style name="MyActionBarTabTextStyle" parent="android:style/Widget.Holo.Light.ActionBar.TabText">        
         <item name="android:textColor">#000000</item>
-        <item name="android:textSize">14sp</item>   
+        <item name="android:textSize">15sp</item>   
     </style>
     
     <style name="CustomWindowTitleBackground">
@@ -29,4 +29,51 @@
     	<item name="android:windowTitleSize">35dp</item>
     	<item name="android:windowTitleBackgroundStyle">@style/CustomWindowTitleBackground</item>
     </style>
+    
+    <style name="PersonalLine">
+        <item name="android:background">#ffcccccc</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">1.0dip</item>
+    </style>
+    
+    <style name="PersonalMainLayoutStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">10dp</item>
+        <item name="android:background">@drawable/background_corners</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:padding">1dp</item>
+    </style>
+    
+    <style name="PersonalRightIconStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
+    
+    <style name="ToggleButtonStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
+    
+    <style name="detail_btn">    
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:gravity">center_horizontal</item>    
+        <item name="android:paddingTop">8.0dip</item>
+        <item name="android:paddingBottom">5.0dip</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>  
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_weight">1.0</item>
+    </style>
+    
+    
 </resources>

@@ -219,14 +219,15 @@
         	android:textColor="#666666" />
     
      <LinearLayout
+        android:id="@+id/layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
         android:layout_marginTop="10dp"
         android:orientation="horizontal" 
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/table_shape">
+        android:background="@drawable/register_selector">
           
         <TextView
          	android:id="@+id/textView7"

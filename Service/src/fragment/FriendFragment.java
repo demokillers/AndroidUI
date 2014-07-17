@@ -28,6 +28,7 @@ public class FriendFragment extends Fragment implements OnChildClickListener{
 	private ExpandableListView mListView = null; 
     private FriendAdapter mAdapter = null; 
     private List<List<friend>> mData = new ArrayList<List<friend>>(); //表示用户信息的列表
+    private View view;
     
     //表示定义的四个分组
     private String[] mGroupArrays = new String[] {  
@@ -72,11 +73,23 @@ public class FriendFragment extends Fragment implements OnChildClickListener{
     public View onCreateView(LayoutInflater inflater,
     ViewGroup container, Bundle savedInstanceState) {       
         //return inflater.inflate(R.layout.fragment_3, container, false);
-		mListView = new ExpandableListView(getActivity()); 
-        mListView.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT)); 
+		ViewGroup p = (ViewGroup) view.getParent(); 
+        if (p != null) { 
+            p.removeAllViewsInLayout(); 
+        } 
+
+		return view;
+    }
+	
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		view=View.inflate(getActivity(),R.layout.friend,null); 
+		mListView = (ExpandableListView)view.findViewById(R.id.friendlist);
+        //mListView.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT)); 
         mAdapter = new FriendAdapter(getActivity(), mData, mGroupArrays);
         mListView.setAdapter(mAdapter); 
-        mListView.setDescendantFocusability(ExpandableListView.FOCUS_AFTER_DESCENDANTS); 
+        //mListView.setDescendantFocusability(ExpandableListView.FOCUS_AFTER_DESCENDANTS); 
         //mListView.setOnChildClickListener(this);
         mListView.setOnItemLongClickListener(new OnItemLongClickListener(){
 			@Override
@@ -98,12 +111,6 @@ public class FriendFragment extends Fragment implements OnChildClickListener{
 				return true;
 			}
         });
-		return mListView;
-    }
-	
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
 		initData(); 
     
 	}

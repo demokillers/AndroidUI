@@ -1,20 +1,26 @@
 package client.ui;
 
-import android.os.Bundle;
 import android.app.Activity;
-import android.view.Menu;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
 import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 public class SearchfriendActivity extends Activity {
 
 	Spinner sexSpinner;
 	Spinner ageSpinner;
 	Spinner typeSpinner;
+	TextView exactsearch,fuzzysearch;
+	LinearLayout ll;
 	ArrayAdapter<String> adapter;
 	private static final String[] sexs={"不限","男","女"};
 	private static final String[] ages={"不限","15-22岁","23-30岁","31-45岁","45岁以上"};
@@ -29,7 +35,61 @@ public class SearchfriendActivity extends Activity {
 		sexSpinner=(Spinner)findViewById(R.id.sex);
 		ageSpinner=(Spinner)findViewById(R.id.age);
 		typeSpinner=(Spinner)findViewById(R.id.userType);
+		ll=(LinearLayout)findViewById(R.id.layout);
+		exactsearch=(TextView)findViewById(R.id.textView8);
+		fuzzysearch=(TextView)findViewById(R.id.textView9);
+		exactsearch.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				
+				
+			}
+		});
+		exactsearch.setOnTouchListener(new OnTouchListener() {
+			
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				// TODO Auto-generated method stub
+				if(event.getAction()==MotionEvent.ACTION_UP)
+					exactsearch.setTextColor(Color.BLACK);
+				if(event.getAction()==MotionEvent.ACTION_DOWN)
+					exactsearch.setTextColor(Color.BLUE);
+				return false;
+			}
+		});
 		
+		fuzzysearch.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				
+				
+			}
+		});
+		ll.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		fuzzysearch.setOnTouchListener(new OnTouchListener() {
+			
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				// TODO Auto-generated method stub
+				if(event.getAction()==MotionEvent.ACTION_UP)
+					fuzzysearch.setTextColor(Color.BLACK);
+				if(event.getAction()==MotionEvent.ACTION_DOWN)
+					fuzzysearch.setTextColor(Color.BLUE);
+				return false;
+			}
+		});
 		//性别下拉列表
 		//将可选内容与arrayadapter连接
 		adapter=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,sexs);
@@ -91,11 +151,5 @@ public class SearchfriendActivity extends Activity {
 		});
 	}
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.main, menu);
-		return true;
-	}
 
 }

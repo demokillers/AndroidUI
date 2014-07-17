@@ -7,20 +7,15 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.security.NoSuchAlgorithmException;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.SortedMap;
-import java.util.TreeMap;
 
 import org.json.simple.JSONObject;
 
+import android.util.Log;
+
 public class GetuiSdkHttpPost {
 
-	public static final int CONNECTION_TIMEOUT_INT = 8000;
-	public static final int READ_TIMEOUT_INT = 5000;
-
-	public static String httpPost(String action, Map<String, Object> map) {
+	public static String httpPost(String action, Map<String, Object> map, int CONNECTION_TIMEOUT, int READ_TIMEOUT) {
 
 		String param = JSONObject.toJSONString(map);
 
@@ -36,18 +31,21 @@ public class GetuiSdkHttpPost {
 				urlConn.setRequestMethod("POST");
 				urlConn.setUseCaches(false); // 设置缓存
 				urlConn.setRequestProperty("Charset", "utf-8");
-				urlConn.setConnectTimeout(CONNECTION_TIMEOUT_INT);
-				urlConn.setReadTimeout(READ_TIMEOUT_INT);
+				urlConn.setConnectTimeout(CONNECTION_TIMEOUT);
+				urlConn.setReadTimeout(READ_TIMEOUT);
 
 				urlConn.connect(); // 连接既往服务端发送消息
+				Log.i("HttpPost", "connected to server");
 
 				DataOutputStream dop = new DataOutputStream(urlConn.getOutputStream());
-				dop.write(param.getBytes("utf-8")); // 发送参数
+				dop.write(param.getBytes("utf-8"));
+				Log.i("HttpPost", "sending data");
 				dop.flush(); // 发送，清空缓存
 				dop.close(); // 关闭
 
 				// 下面开始做接收工作
 				BufferedReader bufferReader = new BufferedReader(new InputStreamReader(urlConn.getInputStream()));
+				Log.i("HttpPost", "sending finished");
 				String result = ""; // 获取服务器返回数据
 				String readLine = null;
 				while ((readLine = bufferReader.readLine()) != null) {
@@ -63,7 +61,7 @@ public class GetuiSdkHttpPost {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			//检查通信网络状况。
+			// 连接服务器失败
 			return "error";
 		}
 		return "param is null";
@@ -72,7 +70,7 @@ public class GetuiSdkHttpPost {
 	/**
 	 * 生成Sign方法
 	 */
-	public static String makeSign(String masterSecret, Map<String, Object> params) throws IllegalArgumentException {
+	/*public static String makeSign(String masterSecret, Map<String, Object> params) throws IllegalArgumentException {
 		if (masterSecret == null || params == null) {
 			throw new IllegalArgumentException("masterSecret and params can not be null.");
 		}
@@ -91,12 +89,12 @@ public class GetuiSdkHttpPost {
 		}
 
 		return getMD5Str(input.toString());
-	}
+	}*/
 
 	/**
 	 * MD5加密
 	 */
-	public static String getMD5Str(String sourceStr) {
+	/*public static String getMD5Str(String sourceStr) {
 		byte[] source = sourceStr.getBytes();
 		String s = null;
 		char hexDigits[] = { // 用来将字节转换成 16 进制表示的字符
@@ -126,6 +124,6 @@ public class GetuiSdkHttpPost {
 		}
 		s = new String(str); // 换后的结果转换为字符串
 		return s;
-	}
+	}*/
 
 }

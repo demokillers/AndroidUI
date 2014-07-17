@@ -11,7 +11,6 @@
         android:id="@+id/login_top_layout"
         android:layout_width="fill_parent"
         android:layout_height="40dp"
-        android:layout_alignParentRight="true"
         android:background="@drawable/login_top_bg"
         android:gravity="top" >
 
@@ -29,16 +28,259 @@
            />
         
     </RelativeLayout>
+    
+     <ScrollView
+        android:id="@+id/id_more_scrollview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="50dp" >
 
-    <ListView
-        android:id="@+id/listView1"
-        android:layout_marginTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:fastScrollEnabled="false"
-        android:scrollbars="none"
-        android:layout_below="@+id/login_top_layout" >
-    </ListView>
+       	<LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="7.0dip"
+            android:layout_marginRight="7.0dip"
+            android:layout_marginTop="10dip"
+            android:orientation="vertical" >
+
+            <RelativeLayout
+                 android:id="@+id/info"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:minHeight="50.0dip"
+                android:paddingBottom="14.0dip"
+                android:paddingLeft="14.0dip"
+                android:paddingRight="12.0dip"
+                android:paddingTop="14.0dip"
+                android:clickable="true"
+                android:descendantFocusability="blocksDescendants"
+                android:background="@drawable/setting_bgcolor_selector" >
+
+                <ImageView
+                    android:id="@+id/image_history"
+                    android:layout_width="23.0dip"
+                    android:layout_height="23.0dip"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/login_icon_account" />
+                <TextView 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="个人信息"
+                    android:textSize="16.0dip"
+                    android:layout_toRightOf="@id/image_history"
+                    android:paddingLeft="15dip"
+                    android:layout_centerVertical="true"/>
+                <ImageView 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/android_list_idex"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"/>
+            </RelativeLayout>
+            
+            <View android:layout_width="fill_parent"
+                android:layout_height="1.0dip"
+                android:background="#ffcccccc"/>
+
+            
+            <RelativeLayout
+                android:id="@+id/change"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:minHeight="50.0dip"
+                android:paddingBottom="14.0dip"
+                android:paddingLeft="14.0dip"
+                android:paddingRight="12.0dip"
+                android:paddingTop="14.0dip" 
+                android:clickable="true"
+                android:descendantFocusability="blocksDescendants"
+                android:background="@drawable/setting_bgcolor_selector" >
+
+                <ImageView
+                    android:id="@+id/image_help"
+                    android:layout_width="23.0dip"
+                    android:layout_height="23.0dip"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/android_my_jd_account_safe" />
+                <TextView 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="修改密码"
+                    android:textSize="16.0dip"
+                    android:layout_toRightOf="@id/image_help"
+                    android:paddingLeft="15dip"
+                    android:layout_centerVertical="true"/>
+                <ImageView 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/android_list_idex"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"/>
+            </RelativeLayout>
+            <View android:layout_width="fill_parent"
+                android:layout_height="1.0dip"
+                android:background="#ffcccccc"/>
+            
+            <RelativeLayout
+                android:id="@+id/feedback"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:minHeight="50.0dip"
+                android:paddingBottom="14.0dip"
+                android:paddingLeft="14.0dip"
+                android:paddingRight="12.0dip"
+                android:paddingTop="14.0dip"
+                android:clickable="true"
+                android:descendantFocusability="blocksDescendants"
+                android:background="@drawable/setting_bgcolor_selector" >
+
+                <ImageView
+                    android:id="@+id/image_opinion"
+                    android:layout_width="23.0dip"
+                    android:layout_height="23.0dip"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/main_menu_feedback" />
+                <TextView 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="意见反馈"
+                    android:textSize="16.0dip"
+                    android:layout_toRightOf="@id/image_opinion"
+                    android:paddingLeft="15dip"
+                    android:layout_centerVertical="true"/>
+                <ImageView 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/android_list_idex"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"/>
+            </RelativeLayout>
+            <View android:layout_width="fill_parent"
+                android:layout_height="1.0dip"
+                android:background="#ffcccccc"/>
+            
+            <RelativeLayout
+                android:id="@+id/aboutus"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:minHeight="50.0dip"
+                android:paddingBottom="14.0dip"
+                android:paddingLeft="14.0dip"
+                android:paddingRight="12.0dip"
+                android:paddingTop="14.0dip"
+                android:clickable="true"
+                android:descendantFocusability="blocksDescendants"
+                android:background="@drawable/setting_bgcolor_selector" >
+
+                <ImageView
+                    android:id="@+id/image_aboutus"
+                    android:layout_width="23.0dip"
+                    android:layout_height="23.0dip"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/main_menu_about" />
+                <TextView 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="关于易助"
+                    android:textSize="16.0dip"
+                    android:layout_toRightOf="@id/image_aboutus"
+                    android:paddingLeft="15dip"
+                    android:layout_centerVertical="true"/>
+                <ImageView 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/android_list_idex"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"/>
+            </RelativeLayout>
+            <View android:layout_width="fill_parent"
+                android:layout_height="1.0dip"
+                android:background="#ffcccccc"/>
+            
+    
+            
+            <RelativeLayout
+                android:id="@+id/more_seting"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:minHeight="50.0dip"
+                android:paddingBottom="14.0dip"
+                android:paddingLeft="14.0dip"
+                android:paddingRight="12.0dip"
+                android:paddingTop="14.0dip"
+                android:clickable="true"
+                android:descendantFocusability="blocksDescendants"
+                android:background="@drawable/setting_bgcolor_selector" >
+
+                <ImageView
+                    android:id="@+id/image_seting"
+                    android:layout_width="23.0dip"
+                    android:layout_height="23.0dip"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/setting_key" />
+                <TextView 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="注销"
+                    android:textSize="16.0dip"
+                    android:layout_toRightOf="@id/image_seting"
+                    android:paddingLeft="15dip"
+                    android:layout_centerVertical="true"/>
+                <ImageView 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/android_list_idex"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"/>
+            </RelativeLayout>
+            <View android:layout_width="fill_parent"
+                android:layout_height="1.0dip"
+                android:background="#ffcccccc"/>
+            
+            
+            <RelativeLayout
+                android:id="@+id/exit"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:minHeight="50.0dip"
+                android:paddingBottom="14.0dip"
+                android:paddingLeft="14.0dip"
+                android:paddingRight="12.0dip"
+                android:paddingTop="14.0dip"
+                android:clickable="true"
+                android:descendantFocusability="blocksDescendants"
+                android:background="@drawable/setting_bgcolor_selector" >
+
+                <ImageView
+                    android:id="@+id/image_exit"
+                    android:layout_width="23.0dip"
+                    android:layout_height="23.0dip"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/main_menu_exit" />
+                <TextView 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="退出"
+                    android:textSize="16.0dip"
+                    android:layout_toRightOf="@id/image_exit"
+                    android:paddingLeft="15dip"
+                    android:layout_centerVertical="true"/>
+                <ImageView 
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/android_list_idex"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"/>
+            </RelativeLayout>
+            <View android:layout_width="fill_parent"
+                android:layout_height="1.0dip"
+                android:background="#ffcccccc"/>
+            
+            
+        </LinearLayout>
+    </ScrollView>
+    
+    
 
 </RelativeLayout>

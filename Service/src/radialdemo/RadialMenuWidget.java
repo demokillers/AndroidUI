@@ -28,6 +28,7 @@ import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.support.v4.app.Fragment;
+import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -170,6 +171,19 @@ public class RadialMenuWidget extends View {
 		determineWedges();
 		helper.onOpenAnimation(this, xPosition, yPosition, xSource, ySource);
 	}
+	
+	 public RadialMenuWidget(Context context,AttributeSet attrs){
+	       super(context, attrs);
+	       helper = new RadialMenuHelper();
+	       mWindow = helper.initPopup(context);
+	       // Gets screen specs and defaults to center of screen
+	       this.xPosition = (getResources().getDisplayMetrics().widthPixels) / 2;
+	       this.yPosition = (getResources().getDisplayMetrics().heightPixels) / 2;
+			
+	       determineWedges();
+	       helper.onOpenAnimation(this, xPosition, yPosition, xSource, ySource);
+	}
+
 
 	@Override
 	public boolean onTouchEvent(MotionEvent e) {

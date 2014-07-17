@@ -123,6 +123,9 @@ public class ControlActivity extends FragmentActivity implements
 			case R.id.menu_add: 	
 				startActivity(new Intent(ControlActivity.this,SearchfriendActivity.class));
 				break;
+			case R.id.history: 	
+				startActivity(new Intent(ControlActivity.this,HistoryActivity.class));
+				break;
 				
 			case R.id.menu_refresh:
 				//选中刷新按钮后刷新一秒钟

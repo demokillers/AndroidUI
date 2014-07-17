@@ -19,11 +19,10 @@ import client.ui.SendHelpMsgActivity;
 
 public class HelpFragment extends Fragment{
 	private RadialMenuWidget pieMenu;
-
 	public RadialMenuItem menuItem, menuClose1Item, menuClose2Item;
 	public RadialMenuItem firstChildItem, secondChildItem, thirdChildItem;
 	private List<RadialMenuItem> children = new ArrayList<RadialMenuItem>();
-	View view;
+	private View view;
 
 	@SuppressWarnings("serial")
 	public HelpFragment(){
@@ -34,9 +33,43 @@ public class HelpFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater,
     ViewGroup container, Bundle savedInstanceState) {       
 
-
-		pieMenu = new RadialMenuWidget(getActivity());
 		
+		
+		 //pieMenu.addMenuEntry(menuItem);
+		ViewGroup p = (ViewGroup) view.getParent(); 
+        if (p != null) { 
+            p.removeAllViewsInLayout(); 
+        } 
+
+        return view;
+    }
+
+	@SuppressLint("NewApi")
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		/*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB
+				&& Build.VERSION.SDK_INT <= Build.VERSION_CODES.HONEYCOMB_MR2) {
+			getActivity().setTheme(android.R.style.Theme_Holo_Light);
+			view=View.inflate(getActivity(),R.layout.activity_radial,null); 
+			getActivity().getActionBar().setDisplayShowHomeEnabled(true);
+		} else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+			
+			getActivity().setTheme(android.R.style.Theme_Holo_Light_DarkActionBar);
+			view=View.inflate(getActivity(),R.layout.activity_radial,null); 
+			
+			getActivity().getWindow().setUiOptions(
+					ActivityInfo.UIOPTION_SPLIT_ACTION_BAR_WHEN_NARROW);
+			getActivity().getActionBar().setDisplayShowHomeEnabled(true);
+			
+		} else {
+			getActivity().setTheme(R.style.RadialMenuLegacyTitleBar);
+			getActivity().requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
+			view=View.inflate(getActivity(),R.layout.activity_radial,null); 
+		}*/	
+		view=View.inflate(getActivity(),R.layout.help,null); 
+		//pieMenu = new RadialMenuWidget(getActivity());
+		pieMenu =(RadialMenuWidget)view.findViewById(R.id.raidal);
 		//menuClose1Item = new RadialMenuItem(getString(R.string.close1), null);
 		//menuClose1Item.setDisplayIcon(android.R.drawable.ic_menu_close_clear_cancel);		
 		/*menuClose1Item.setOnMenuItemPressed(new RadialMenuItem.RadialMenuItemClickListener() {
@@ -100,12 +133,12 @@ public class HelpFragment extends Fragment{
 				});
 
 
-		if(children.size() != 3)
-		{
+		//if(children.size() != 3)
+		//{
 		children.add(firstChildItem);
 		children.add(secondChildItem);
 		children.add(thirdChildItem);
-		}
+		//}
 		menuItem.setMenuChildren(children);
 		menuClose2Item.setMenuChildren(children);
 
@@ -134,37 +167,6 @@ public class HelpFragment extends Fragment{
 				//add(menuClose1Item);
 			}
 		});
-
-		 //pieMenu.addMenuEntry(menuItem);
-		
-        return pieMenu;
-    }
-
-	@SuppressLint("NewApi")
-	@Override
-	public void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		/*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB
-				&& Build.VERSION.SDK_INT <= Build.VERSION_CODES.HONEYCOMB_MR2) {
-			getActivity().setTheme(android.R.style.Theme_Holo_Light);
-			view=View.inflate(getActivity(),R.layout.activity_radial,null); 
-			getActivity().getActionBar().setDisplayShowHomeEnabled(true);
-		} else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-			
-			getActivity().setTheme(android.R.style.Theme_Holo_Light_DarkActionBar);
-			view=View.inflate(getActivity(),R.layout.activity_radial,null); 
-			
-			getActivity().getWindow().setUiOptions(
-					ActivityInfo.UIOPTION_SPLIT_ACTION_BAR_WHEN_NARROW);
-			getActivity().getActionBar().setDisplayShowHomeEnabled(true);
-			
-		} else {
-			getActivity().setTheme(R.style.RadialMenuLegacyTitleBar);
-			getActivity().requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
-			view=View.inflate(getActivity(),R.layout.activity_radial,null); 
-		}*/	
-
-
 	}
 	
 }
